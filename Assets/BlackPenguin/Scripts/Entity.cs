@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public struct StatInfo
+[System.Serializable] public struct StatInfo
 {
     public float Damage;
     public float MaxHp;
