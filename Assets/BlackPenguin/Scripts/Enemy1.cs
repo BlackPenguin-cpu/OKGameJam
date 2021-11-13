@@ -14,6 +14,7 @@ public class Enemy1 : Entity
     }
     void Update()
     {
+        _hp-=2;
         Debug.DrawRay(transform.position, Vector3.left * crossroad, Color.red);
         var rayHit = Physics2D.RaycastAll(transform.position, Vector3.left, crossroad);
         foreach (var hit in rayHit)
@@ -36,6 +37,10 @@ public class Enemy1 : Entity
                 Move();
             }
         }
+        if(_hp <= 0)
+        {
+            Dead();
+        }
     }
 
     public override void Move()
@@ -56,11 +61,11 @@ public class Enemy1 : Entity
     protected override void Dead()
     {
         Destroy(this.gameObject);
+        Debug.Log("¾ê µÚÁü");
     }
 
     protected override void Hitted()
     {
-        
         Debug.Log("¹Ì¿Ï¼º");
     }
     
