@@ -49,7 +49,7 @@ public abstract class Entity : MonoBehaviour
 {
     ///<summary> damage hp defence speed isdie type(ENEMY, FRIENDLY)</summary>
     public StatInfo stat;
-    private float hp;
+    [SerializeField] private float hp;
     public float _hp
     {
         get
