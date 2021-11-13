@@ -18,7 +18,6 @@ public class Enemy1 : Entity
         var rayHit = Physics2D.RaycastAll(transform.position, Vector3.left, crossroad);
         foreach (var hit in rayHit)
         {
-            hit.collider.GetComponent<Entity>().Get_hp();
             if (hit.collider.gameObject != this.gameObject)
             {
                 Entity entity = hit.collider.gameObject.GetComponent<Entity>();

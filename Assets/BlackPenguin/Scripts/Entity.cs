@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public struct StatInfo 
+public struct StatInfo
 {
     public float Damage;
     public float MaxHp;
@@ -13,8 +13,9 @@ public struct StatInfo
     public float defence
     {
         get { return Defence; }
-        set {
-            if(value < 0)
+        set
+        {
+            if (value < 0)
             {
                 value = 0;
             }
@@ -26,12 +27,13 @@ public struct StatInfo
     public float speed
     {
         get { return Speed; }
-        set {
-            if(value < 0)
+        set
+        {
+            if (value < 0)
             {
                 value = 0;
             }
-            Speed = value; 
+            Speed = value;
         }
     }
 
@@ -49,39 +51,61 @@ public abstract class Entity : MonoBehaviour
     ///<summary> damage hp defence speed isdie type(ENEMY, FRIENDLY)</summary>
     public StatInfo stat;
     private float hp;
-
-    public virtual float Get_hp()
+    public float _hp
     {
-        return hp;
-    }
-    public virtual void Set_hp(float value)
-    {
-        Set_hp(value);
-        if (Get_hp() > Get_hp() + value)
+        get
         {
-            if (stat.defence > value)
+            return hp;
+        }
+        set
+        {
+            if (hp + value < 0)
             {
-                return;
+                hp = 0;
+                Dead();
+            }
+            else if (hp + value > stat.MaxHp)
+            {
+                hp = stat.MaxHp;
             }
             else
             {
-                hp = Get_hp() + stat.defence;
+                hp = hp + value;
             }
         }
-        if (Get_hp() < 0)
-        {
-            hp = 0;
-            Dead();
-        }
-        else if (Get_hp() > stat.MaxHp)
-        {
-            hp = stat.MaxHp;
-        }
-        else
-        {
-            hp = Get_hp();
-        }
     }
+
+    //public virtual float Get_hp()
+    //{
+    //    return hp;
+    //}
+    //public virtual void Set_hp(float value)
+    //{
+    //    if (Get_hp() > Get_hp() + value)
+    //    {
+    //        if (stat.defence > -value&& value < 0)
+    //        {
+    //            return;
+    //        }
+    //        else
+    //        {
+    //            hp = value + stat.defence;
+    //        }
+    //    }
+    //    if (Get_hp() + value < 0)
+    //    {
+    //        hp = 0;
+    //        Dead();
+    //    }
+    //    else if (Get_hp()+value > stat.MaxHp)
+    //    {
+    //        hp = stat.MaxHp;
+    //    }
+    //    else
+    //    {
+    //        hp = Get_hp();
+    //    }
+    //}
 
     public virtual void Move() // 기본적으로 유닛만 이 함수를 사용함
     {
@@ -91,8 +115,8 @@ public abstract class Entity : MonoBehaviour
     protected abstract void Hitted();
     protected virtual void Attack(Entity entity)
     {
-        Set_hp(Get_hp());
-        entity.GetComponent<Entity>().Set_hp(Get_hp() - stat.Damage);
+        if(stat.Damage - entity.stat.defence > 0)
+        entity.GetComponent<Entity>()._hp -= (stat.Damage - entity.stat.defence);
     }
     protected abstract void Dead();
 
