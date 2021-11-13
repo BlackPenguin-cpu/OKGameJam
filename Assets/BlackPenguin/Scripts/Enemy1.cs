@@ -48,10 +48,9 @@ public class Enemy1 : Entity
         attacktime += 1 *  Time.deltaTime;
         if (attacktime >= attacktimeMax)
         {
-            Set_hp(Get_hp());
             attacktime = 0;
-            entity.GetComponent<Entity>().Set_hp(Get_hp() - stat.Damage);
             Debug.Log("1");
+            base.Attack(entity);
         }
     }
     

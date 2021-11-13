@@ -89,7 +89,11 @@ public abstract class Entity : MonoBehaviour
     }
 
     protected abstract void Hitted();
-    protected abstract void Attack(Entity entity);
+    protected virtual void Attack(Entity entity)
+    {
+        Set_hp(Get_hp());
+        entity.GetComponent<Entity>().Set_hp(Get_hp() - stat.Damage);
+    }
     protected abstract void Dead();
 
 
