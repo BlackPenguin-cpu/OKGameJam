@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-[System.Serializable] public struct StatInfo
+[System.Serializable]
+public struct StatInfo
 {
     public float Damage;
     public float MaxHp;
-    private float Defence;
+    [SerializeField] private float Defence;
     public float Score;
     public float defence
     {
@@ -60,15 +61,18 @@ public abstract class Entity : MonoBehaviour
         {
             if (hp + value < 0)
             {
+                Debug.Log("1차차단" + value);
                 hp = 0;
                 Dead();
             }
             else if (hp + value > stat.MaxHp)
             {
+                Debug.Log("2차차단" + value);
                 hp = stat.MaxHp;
             }
             else
             {
+                Debug.Log("3차차단" + value);
                 hp = hp + value;
             }
         }
@@ -116,14 +120,14 @@ public abstract class Entity : MonoBehaviour
     {
         if (stat.Damage - entity.stat.defence > 0)
         {
-            //entity.GetComponent<Entity>()._hp -= (stat.Damage - entity.stat.defence);
-            entity.GetComponent<Entity>().hp -= (stat.Damage - entity.stat.defence);
+            entity.GetComponent<Entity>()._hp = -(stat.Damage - entity.stat.defence);
+            //entity.GetComponent<Entity>().hp -= (stat.Damage - entity.stat.defence);
         }
     }
     protected abstract void Dead();
-    
 
-    
+
+
 
 
 }

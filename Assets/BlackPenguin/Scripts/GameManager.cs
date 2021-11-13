@@ -13,12 +13,12 @@ public class GameManager : Singleton<GameManager>
     // Update is called once per frame
     public void Update()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Collider2D.OverLapPoint(mousePosition))
-        {
-            //do great stuff
-        }
+        //if (Collider2D.OverLapPoint(mousePosition))
+        //{
+        //    //do great stuff
+        //}
 
 
     }

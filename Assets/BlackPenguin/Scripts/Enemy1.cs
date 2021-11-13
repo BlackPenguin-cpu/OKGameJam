@@ -14,7 +14,7 @@ public class Enemy1 : Entity
     }
     void Update()
     {
-        _hp-=2;
+        //_hp=-2;
         Debug.DrawRay(transform.position, Vector3.left * crossroad, Color.red);
         var rayHit = Physics2D.RaycastAll(transform.position, Vector3.left, crossroad);
         foreach (var hit in rayHit)
