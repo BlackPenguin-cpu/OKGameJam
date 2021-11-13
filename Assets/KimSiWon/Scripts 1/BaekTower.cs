@@ -15,5 +15,4 @@ public class BaekTower : MonoBehaviour
     {
         
     }
-    Collider2D
 }
