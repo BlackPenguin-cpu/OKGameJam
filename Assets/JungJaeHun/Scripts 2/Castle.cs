@@ -5,13 +5,11 @@ using UnityEngine.UI;
 
 public class Castle : Entity
 {
-    public float MaxCastleHp;
-    public float CastleHp;
     public bool IsEnd = false;
     // Start is called before the first frame update
     void Start()
     {
-        stat = new StatInfo {type = StatInfo.Type.FRIENDLY};
+        stat = new StatInfo {type = StatInfo.Type.FRIENDLY, MaxHp = 100};
         if (IsEnd == true)
         {
             GameEnd();

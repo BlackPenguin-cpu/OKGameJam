@@ -22,7 +22,6 @@ using UnityEngine.UI;
             Defence = value;
         }
     }
-
     private float Speed;
     public float speed
     {
@@ -115,8 +114,10 @@ public abstract class Entity : MonoBehaviour
     protected abstract void Hitted();
     protected virtual void Attack(Entity entity)
     {
-        if(stat.Damage - entity.stat.defence > 0)
-        entity.GetComponent<Entity>()._hp -= (stat.Damage - entity.stat.defence);
+        if (stat.Damage - entity.stat.defence > 0)
+        {
+            entity.GetComponent<Entity>()._hp -= (stat.Damage - entity.stat.defence);
+        }
     }
     protected abstract void Dead();
 
