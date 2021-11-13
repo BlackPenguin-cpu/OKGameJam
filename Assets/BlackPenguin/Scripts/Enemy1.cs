@@ -37,10 +37,10 @@ public class Enemy1 : Entity
                 Move();
             }
         }
-        if(_hp <= 0)
-        {
-            Dead();
-        }
+        //if(_hp <= 0)
+        //{
+        //    Dead();
+        //}
     }
 
     public override void Move()
@@ -62,11 +62,6 @@ public class Enemy1 : Entity
     {
         Destroy(this.gameObject);
         Debug.Log("¾ê µÚÁü");
-    }
-
-    protected override void Hitted()
-    {
-        Debug.Log("¹Ì¿Ï¼º");
     }
     
     //protected override void Action()

@@ -18,9 +18,5 @@ public class TestEnemy : Entity
         Debug.Log("미완성");
     }
 
-    protected override void Hitted()
-    {
-        Debug.Log("미완성");
-    }
 
 }

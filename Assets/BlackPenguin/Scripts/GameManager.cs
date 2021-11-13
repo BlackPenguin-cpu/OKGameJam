@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float mousepower = 1;
+    
 
-    // Update is called once per frame
     public void Update()
     {
-        //Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
 
-        //if (Collider2D.OverLapPoint(mousePosition))
-        //{
-        //    //do great stuff
-        //}
-
-
+        if (hit.collider != null && hit.collider.gameObject.transform != this.gameObject.transform && Input.GetMouseButtonDown(0))
+        {
+            Debug.Log(hit.collider.gameObject.name);
+            if (hit.collider.tag.Contains("Entity"))
+            {
+                var enemy = hit.collider.gameObject.GetComponent<Entity>();
+                enemy._hp = -mousepower;
+            }   
+        }
     }
 }

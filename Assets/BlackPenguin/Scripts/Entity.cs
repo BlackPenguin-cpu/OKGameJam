@@ -51,7 +51,7 @@ public abstract class Entity : MonoBehaviour
     ///<summary> damage hp defence speed isdie type(ENEMY, FRIENDLY)</summary>
     public StatInfo stat;
     [SerializeField] private float hp;
-    public float _hp
+    public virtual float _hp
     {
         get
         {
@@ -115,7 +115,6 @@ public abstract class Entity : MonoBehaviour
         transform.Translate(Vector3.left * stat.speed * Time.deltaTime);
     }
 
-    protected abstract void Hitted();
     protected virtual void Attack(Entity entity)
     {
         if (stat.Damage - entity.stat.defence > 0)

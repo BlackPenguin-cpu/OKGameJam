@@ -38,11 +38,5 @@ public class Castle : Entity
     { 
         Debug.Log("게임 오버");
     }
-
-    protected override void Hitted()
-    {
-
-        
-    }
     
 }
