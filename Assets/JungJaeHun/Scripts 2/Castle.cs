@@ -10,19 +10,19 @@ public class Castle : Entity
     void Start()
     {
         stat = new StatInfo {type = StatInfo.Type.FRIENDLY, MaxHp = 100};
-        if (IsEnd == true)
-        {
-            GameEnd();
-        }
     }
     
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (_hp <= 0)
         {
             IsEnd = true;
+        }
+        if (IsEnd == true)
+        {
+            Dead();
         }
     }
     public override void Move()
@@ -31,12 +31,12 @@ public class Castle : Entity
     }
     protected override void Attack(Entity entity)
     {
-        
+       
     }
 
     protected override void Dead()
-    {
-        
+    { 
+        Debug.Log("게임 오버");
     }
 
     protected override void Hitted()
@@ -44,8 +44,5 @@ public class Castle : Entity
 
         
     }
-    void GameEnd()
-    {
-        Debug.Log("게임 오버");
-    }
+    
 }

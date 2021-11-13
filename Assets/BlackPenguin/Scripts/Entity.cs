@@ -116,10 +116,14 @@ public abstract class Entity : MonoBehaviour
     {
         if (stat.Damage - entity.stat.defence > 0)
         {
-            entity.GetComponent<Entity>()._hp -= (stat.Damage - entity.stat.defence);
+            //entity.GetComponent<Entity>()._hp -= (stat.Damage - entity.stat.defence);
+            entity.GetComponent<Entity>().hp -= (stat.Damage - entity.stat.defence);
         }
     }
     protected abstract void Dead();
+    
+
+    
 
 
 }
