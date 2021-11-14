@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCloser2 : Entity
+public class EnemySelfDestruct : Entity
 {
-    public float crossroad; 
-    public RaycastHit2D hit; 
+    public float crossroad;
+    public RaycastHit2D hit;
     public float attacktime;
     public float attacktimeMax;
 
     private void Start()
     {
-        stat = new StatInfo { Damage = 8, speed = 2, MaxHp = 17, Score = 400, type = StatInfo.Type.ENEMY, defence = 3 };
+        stat = new StatInfo { Damage = 13, speed = 4.5f, MaxHp = 5, Score = 200, type = StatInfo.Type.ENEMY, defence = 0.5f };
     }
     void Update()
     {
@@ -49,8 +49,9 @@ public class EnemyCloser2 : Entity
         if (attacktime >= attacktimeMax)
         {
             attacktime = 0;
-            Debug.Log("1");
+            Debug.Log("ÀÚÆø ¼º°ø");
             base.Attack(entity);
+            Destroy(this.gameObject);
         }
     }
 
