@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCloser2 : Entity
+public class EnemyFaraway : Entity
 {
-    public float crossroad; 
-    public RaycastHit2D hit; 
+    public float crossroad;
+    public RaycastHit2D hit;
     public float attacktime;
     public float attacktimeMax;
+    public GameObject Bullet;
 
     private void Start()
     {
-        stat = new StatInfo { Damage = 8, speed = 2, MaxHp = 17, Score = 400, type = StatInfo.Type.ENEMY, defence = 3 };
+        stat = new StatInfo {speed = 0.7f, MaxHp = 9, Score = 500, type = StatInfo.Type.ENEMY, defence = 1 };
     }
     void Update()
     {
@@ -49,8 +50,8 @@ public class EnemyCloser2 : Entity
         if (attacktime >= attacktimeMax)
         {
             attacktime = 0;
-            Debug.Log("1");
-            base.Attack(entity);
+            Debug.Log("น฿ป็");
+            Instantiate(Bullet, transform.position, Quaternion.identity);
         }
     }
 
