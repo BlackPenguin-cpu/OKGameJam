@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy1 : Entity
+public class EnemyTanker : Entity
 {
-    public float crossroad; //»ç°Å¸®
-    public RaycastHit2D hit; //·¹ÀÌÄ³½ºÆ® ÆÇÁ¤
+    public float crossroad;
+    public RaycastHit2D hit;
     public float attacktime;
     public float attacktimeMax;
+
     private void Start()
     {
-        stat = new StatInfo { Damage = 5, speed = 10, MaxHp = 10, Score = 100, type = StatInfo.Type.ENEMY, defence = 1 };
+        stat = new StatInfo { Damage = 2, speed = 0.5f, MaxHp = 30, Score = 1000, type = StatInfo.Type.ENEMY, defence = 3 };
     }
     void Update()
     {
-        //_hp=-2;
         Debug.DrawRay(transform.position, Vector3.left * crossroad, Color.red);
         var rayHit = Physics2D.RaycastAll(transform.position, Vector3.left, crossroad);
         foreach (var hit in rayHit)
@@ -25,22 +25,18 @@ public class Enemy1 : Entity
                 if (entity.stat.type != this.stat.type)
                 {
                     stat.speed = 0;
-                    Attack(entity);                   
+                    Attack(entity);
                 }
-                else
-                {
-                    Move();
-                }
+                //else
+                //{
+                //    Move();
+                //}
             }
             else
             {
                 Move();
             }
         }
-        //if(_hp <= 0)
-        //{
-        //    Dead();
-        //}
     }
 
     public override void Move()
@@ -49,7 +45,7 @@ public class Enemy1 : Entity
     }
     protected override void Attack(Entity entity)
     {
-        attacktime += 1 *  Time.deltaTime;
+        attacktime += 1 * Time.deltaTime;
         if (attacktime >= attacktimeMax)
         {
             attacktime = 0;
@@ -57,15 +53,10 @@ public class Enemy1 : Entity
             base.Attack(entity);
         }
     }
-    
+
     protected override void Dead()
     {
         Destroy(this.gameObject);
-        Debug.Log("¾ê µÚÁü");
+        Debug.Log("¾ê »ç¸Á");
     }
-    
-    //protected override void Action()
-    //{
-
-    //}
 }
