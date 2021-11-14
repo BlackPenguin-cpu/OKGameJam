@@ -59,7 +59,7 @@ public abstract class Entity : MonoBehaviour
         }
         set
         {
-            if (hp + value < 0)
+            if (hp + value <= 0)
             {
                 Debug.Log("1Â÷Â÷´Ü" + value);
                 hp = 0;
@@ -124,9 +124,4 @@ public abstract class Entity : MonoBehaviour
         }
     }
     protected abstract void Dead();
-
-
-
-
-
 }

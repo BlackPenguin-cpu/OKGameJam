@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemySpawner : Entity
 {
@@ -11,6 +12,8 @@ public class EnemySpawner : Entity
     public GameObject MiniMonster;
     public float spawntime;
     public float spawntimeMax;
+    public Image barSprite;
+    public float barY;
 
     private void Start()
     {
@@ -42,6 +45,8 @@ public class EnemySpawner : Entity
             Invoke("Spawn", 2);
             stat.speed = 0;
         }
+        barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
+        barSprite.fillAmount = _hp / stat.MaxHp;
     }
 
     public override void Move()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyFaraway : Entity
 {
@@ -9,6 +10,8 @@ public class EnemyFaraway : Entity
     public float attacktime;
     public float attacktimeMax;
     public GameObject Bullet;
+    public Image barSprite;
+    public float barY;
 
     private void Start()
     {
@@ -34,6 +37,8 @@ public class EnemyFaraway : Entity
                 Move();
             }
         }
+        barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
+        barSprite.fillAmount = _hp / stat.MaxHp;
     }
 
     public override void Move()

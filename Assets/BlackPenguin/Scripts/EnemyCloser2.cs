@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyCloser2 : Entity
 {
@@ -8,6 +9,8 @@ public class EnemyCloser2 : Entity
     public RaycastHit2D hit; 
     public float attacktime;
     public float attacktimeMax;
+    public Image barSprite;
+    public float barY;
 
     private void Start()
     {
@@ -37,6 +40,8 @@ public class EnemyCloser2 : Entity
                 Move();
             }
         }
+        barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
+        barSprite.fillAmount = _hp / stat.MaxHp;
     }
 
     public override void Move()

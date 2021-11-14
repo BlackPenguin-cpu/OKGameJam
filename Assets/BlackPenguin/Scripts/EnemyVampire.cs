@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyVampire : Entity
 {
@@ -11,6 +12,8 @@ public class EnemyVampire : Entity
     public float skilltime;
     public float skilltimeMax;
     public float skillcrossroad;
+    public Image barSprite;
+    public float barY;
 
     private void Start()
     {
@@ -54,6 +57,8 @@ public class EnemyVampire : Entity
                 }
             }
         }
+        barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
+        barSprite.fillAmount = _hp / stat.MaxHp;
     }
 
     public override void Move()

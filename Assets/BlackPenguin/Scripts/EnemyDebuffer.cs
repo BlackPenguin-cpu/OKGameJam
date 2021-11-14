@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyDebuffer : Entity
 {
@@ -10,6 +11,8 @@ public class EnemyDebuffer : Entity
     public float attacktimeMax;
     public float skilltime;
     public float skilltimeMax;
+    public Image barSprite;
+    public float barY;
 
     private void Start()
     {
@@ -41,6 +44,8 @@ public class EnemyDebuffer : Entity
             Invoke("Skill", 2);
             stat.speed = 0;
         }
+        barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
+        barSprite.fillAmount = _hp / stat.MaxHp;
     }
 
     public override void Move()

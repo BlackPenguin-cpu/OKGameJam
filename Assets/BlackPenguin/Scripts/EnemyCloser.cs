@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyCloser : Entity
 {
@@ -8,6 +9,8 @@ public class EnemyCloser : Entity
     public RaycastHit2D hit; //레이캐스트 판정
     public float attacktime;
     public float attacktimeMax;
+    public Image barSprite;
+    public float barY;
 
     private void Start()
     {
@@ -15,7 +18,6 @@ public class EnemyCloser : Entity
     }
     void Update()
     {
-        //_hp=-2;
         Debug.DrawRay(transform.position, Vector3.left * crossroad, Color.red);
         var rayHit = Physics2D.RaycastAll(transform.position, Vector3.left, crossroad);
         foreach (var hit in rayHit)
@@ -28,16 +30,14 @@ public class EnemyCloser : Entity
                     stat.speed = 0;
                     Attack(entity);                   
                 }
-                //else
-                //{
-                //    Move();
-                //}
             }
             else
             {
                 Move();
             }
         }
+        barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
+        barSprite.fillAmount = _hp / stat.MaxHp;
     }
 
     public override void Move()
