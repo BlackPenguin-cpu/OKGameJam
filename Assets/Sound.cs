@@ -14,7 +14,6 @@ public class Sound : Singleton<Sound>
     public AudioSource audioSE;
     public List<Clip> clips = new List<Clip>();
     public Sound() { }
-    override protected void init() { }
 
     public void ChangeClip(string name, bool loop)
     //사용법 Sound.Instance.ChangeClip("이름",루프 할껀지안할껀지(bool))
@@ -37,5 +36,13 @@ public class Sound : Singleton<Sound>
 
             }
         }
+    }
+    public void SetMusicVolume(float volume)
+    {
+        audioSource.volume = volume;
+    }
+    public void SetSEVolume(float volume)
+    {
+        audioSE.volume = volume;
     }
 }

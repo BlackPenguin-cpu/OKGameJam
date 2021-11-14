@@ -5,25 +5,33 @@ using UnityEngine;
 //싱글톤 자동화 스크립트
 //사용법 public class Classname : Singleton<Classname> {}
 // protected Classname() {} 을 선언해서 비 싱글톤 생성자 사용을 방지
-public class Singleton<T> : MonoBehaviour where T : Singleton<T>, new() 
+public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    static T mInstnace;
+    private static T instance;
     public static T Instance
     {
         get
         {
-            if (mInstnace == null)
+            if (instance == null)
             {
-                mInstnace = new T();
-                mInstnace.init();
-            }
+                GameObject obj;
+                obj = GameObject.Find(typeof(T).Name);
+                if (obj == null)
+                {
+                    obj = new GameObject(typeof(T).Name);
+                    instance = obj.AddComponent<T>();
+                }
 
-            return mInstnace;
+                else
+                {
+                    instance = obj.GetComponent<T>();
+                }
+            }
+            return instance;
         }
     }
-
-    protected virtual void init()
+    public void Awake()
     {
-
+        DontDestroyOnLoad(gameObject);
     }
 }

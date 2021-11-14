@@ -5,6 +5,8 @@ using UnityEngine.Audio;
 
 public class SoundManager : Singleton<SoundManager>
 {
+    //이거 이제 안씀
+
     public AudioSource audioSource;
     public AudioSource SESource;
     [SerializeField] AudioClip[] audioclip;

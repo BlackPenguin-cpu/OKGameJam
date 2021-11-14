@@ -5,7 +5,8 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public float mousepower = 1;
-    
+    public int gold = 0;
+    public int onClickGold = 1;
 
     public void Update()
     {
@@ -19,7 +20,7 @@ public class GameManager : Singleton<GameManager>
             {
                 var enemy = hit.collider.gameObject.GetComponent<Entity>();
                 enemy._hp = -mousepower;
-            }   
+            }
         }
     }
 }
