@@ -12,7 +12,7 @@ public class EnemyFaraway : Entity
 
     private void Start()
     {
-        stat = new StatInfo {speed = 0.7f, MaxHp = 9, Score = 500, type = StatInfo.Type.ENEMY, defence = 1 };
+        stat = new StatInfo { speed = 0.7f, MaxHp = 9, Score = 500, type = StatInfo.Type.ENEMY, defence = 1 };
     }
     void Update()
     {
@@ -20,7 +20,7 @@ public class EnemyFaraway : Entity
         var rayHit = Physics2D.RaycastAll(transform.position, Vector3.left, crossroad);
         foreach (var hit in rayHit)
         {
-            if (hit.collider.gameObject != this.gameObject)
+            if (hit.collider.gameObject != this.gameObject && hit.collider.gameObject.GetComponent<Entity>() != null)
             {
                 Entity entity = hit.collider.gameObject.GetComponent<Entity>();
                 if (entity.stat.type != this.stat.type)
@@ -28,10 +28,6 @@ public class EnemyFaraway : Entity
                     stat.speed = 0;
                     Attack(entity);
                 }
-                //else
-                //{
-                //    Move();
-                //}
             }
             else
             {
@@ -51,7 +47,11 @@ public class EnemyFaraway : Entity
         {
             attacktime = 0;
             Debug.Log("น฿ป็");
-            Instantiate(Bullet, transform.position, Quaternion.identity);
+            EnemyBullet bullet = Instantiate(Bullet, transform.position, Quaternion.identity).GetComponent<EnemyBullet>();
+            bullet.target = entity.gameObject;
+            bullet.IsEnemy = true;
+            bullet.Damage = 5;
+            bullet.Speed = 5;
         }
     }
 
