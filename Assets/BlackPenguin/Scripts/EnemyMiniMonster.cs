@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySelfDestruct : Entity
+public class EnemyMiniMonster : Entity
 {
     public float crossroad;
     public RaycastHit2D hit;
@@ -11,7 +11,7 @@ public class EnemySelfDestruct : Entity
 
     private void Start()
     {
-        stat = new StatInfo { Damage = 13, speed = 4.5f, MaxHp = 5, Score = 200, type = StatInfo.Type.ENEMY, defence = 0.5f };
+        stat = new StatInfo { Damage = 6, speed = 1.2f, MaxHp = 7, Score = 50, type = StatInfo.Type.ENEMY, defence = 1 };
     }
     void Update()
     {
@@ -27,10 +27,6 @@ public class EnemySelfDestruct : Entity
                     stat.speed = 0;
                     Attack(entity);
                 }
-                //else
-                //{
-                //    Move();
-                //}
             }
             else
             {
@@ -49,15 +45,12 @@ public class EnemySelfDestruct : Entity
         if (attacktime >= attacktimeMax)
         {
             attacktime = 0;
-            Debug.Log("ÀÚÆø ¼º°ø");
             base.Attack(entity);
-            Destroy(this.gameObject);
         }
     }
 
     protected override void Dead()
     {
         Destroy(this.gameObject);
-        Debug.Log("¾ê »ç¸Á");
     }
 }

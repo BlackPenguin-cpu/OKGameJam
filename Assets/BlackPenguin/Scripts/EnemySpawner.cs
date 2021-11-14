@@ -2,19 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySelfDestruct : Entity
+public class EnemySpawner : Entity
 {
     public float crossroad;
     public RaycastHit2D hit;
     public float attacktime;
     public float attacktimeMax;
+    public GameObject MiniMonster;
+    public float spawntime;
+    public float spawntimeMax;
 
     private void Start()
     {
-        stat = new StatInfo { Damage = 13, speed = 4.5f, MaxHp = 5, Score = 200, type = StatInfo.Type.ENEMY, defence = 0.5f };
+        stat = new StatInfo { Damage = 12, speed = 0.4f, MaxHp = 17, Score = 1500, type = StatInfo.Type.ENEMY, defence = 5 };
     }
     void Update()
     {
+        spawntime += Time.deltaTime;
         Debug.DrawRay(transform.position, Vector3.left * crossroad, Color.red);
         var rayHit = Physics2D.RaycastAll(transform.position, Vector3.left, crossroad);
         foreach (var hit in rayHit)
@@ -27,15 +31,16 @@ public class EnemySelfDestruct : Entity
                     stat.speed = 0;
                     Attack(entity);
                 }
-                //else
-                //{
-                //    Move();
-                //}
             }
             else
             {
                 Move();
             }
+        }
+        if(spawntime >= spawntimeMax)
+        {
+            Invoke("Spawn", 2);
+            stat.speed = 0;
         }
     }
 
@@ -49,15 +54,20 @@ public class EnemySelfDestruct : Entity
         if (attacktime >= attacktimeMax)
         {
             attacktime = 0;
-            Debug.Log("ÀÚÆø ¼º°ø");
             base.Attack(entity);
-            Destroy(this.gameObject);
         }
     }
 
     protected override void Dead()
     {
         Destroy(this.gameObject);
-        Debug.Log("¾ê »ç¸Á");
+    }
+
+    void Spawn()
+    {
+        CancelInvoke("Spawn");
+        spawntime = 0;
+        Instantiate(MiniMonster, transform.position + new Vector3(-0.3f,-0.2f,0), Quaternion.identity);
+        stat.speed = 0.4f;
     }
 }

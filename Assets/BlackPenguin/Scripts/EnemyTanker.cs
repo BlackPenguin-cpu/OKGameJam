@@ -11,7 +11,7 @@ public class EnemyTanker : Entity
 
     private void Start()
     {
-        stat = new StatInfo { Damage = 2, speed = 0.5f, MaxHp = 30, Score = 1000, type = StatInfo.Type.ENEMY, defence = 3 };
+        stat = new StatInfo { Damage = 2, speed = 0.5f, MaxHp = 20, Score = 1000, type = StatInfo.Type.ENEMY, defence = 3 };
     }
     void Update()
     {
@@ -19,7 +19,7 @@ public class EnemyTanker : Entity
         var rayHit = Physics2D.RaycastAll(transform.position, Vector3.left, crossroad);
         foreach (var hit in rayHit)
         {
-            if (hit.collider.gameObject != this.gameObject)
+            if (hit.collider.gameObject != this.gameObject && hit.collider.gameObject.GetComponent<Entity>() != null)
             {
                 Entity entity = hit.collider.gameObject.GetComponent<Entity>();
                 if (entity.stat.type != this.stat.type)

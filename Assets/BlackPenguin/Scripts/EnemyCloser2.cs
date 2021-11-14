@@ -19,7 +19,7 @@ public class EnemyCloser2 : Entity
         var rayHit = Physics2D.RaycastAll(transform.position, Vector3.left, crossroad);
         foreach (var hit in rayHit)
         {
-            if (hit.collider.gameObject != this.gameObject)
+            if (hit.collider.gameObject != this.gameObject && hit.collider.gameObject.GetComponent<Entity>() != null)
             {
                 Entity entity = hit.collider.gameObject.GetComponent<Entity>();
                 if (entity.stat.type != this.stat.type)
