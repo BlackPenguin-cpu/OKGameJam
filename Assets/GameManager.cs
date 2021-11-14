@@ -7,6 +7,7 @@ public class GameManager : Singleton<GameManager>
     public float mousepower = 1;
     public int gold = 0;
     public int onClickGold = 1;
+    Entity entity;
 
     public void Update()
     {
