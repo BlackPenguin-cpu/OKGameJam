@@ -21,7 +21,6 @@ public class EnemyVampire : Entity
     }
     void Update()
     {
-        skilltime += Time.deltaTime;
         Debug.DrawRay(transform.position, Vector3.left * crossroad, Color.red);
         var rayHit = Physics2D.RaycastAll(transform.position, Vector3.left, crossroad);
         var rayHit2 = Physics2D.RaycastAll(transform.position, Vector3.left, skillcrossroad);
@@ -50,13 +49,14 @@ public class EnemyVampire : Entity
                 {
                     if (skilltime >= skilltimeMax)
                     {
-                        Invoke("Skill", 2);
-                        //Skill();
+                        skilltime = 0;
+                        Skill();
                         entity.GetComponent<Entity>()._hp = -(4 - entity.stat.defence);
                     }
                 }
             }
         }
+        skilltime += Time.deltaTime;
         barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
         barSprite.fillAmount = _hp / stat.MaxHp;
     }
@@ -82,8 +82,6 @@ public class EnemyVampire : Entity
 
     void Skill()
     {
-        CancelInvoke("Skill");
-        skilltime = 0;
         _hp = + 4;
     }
 }
