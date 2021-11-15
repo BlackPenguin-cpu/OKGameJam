@@ -9,6 +9,7 @@ public class EnemyTanker : Entity
     public RaycastHit2D hit;
     public float attacktime;
     public float attacktimeMax;
+    public bool isMove;
     public Image barSprite;
     public float barY;
 
@@ -27,7 +28,7 @@ public class EnemyTanker : Entity
                 Entity entity = hit.collider.gameObject.GetComponent<Entity>();
                 if (entity.stat.type != this.stat.type)
                 {
-                    stat.speed = 0;
+                    isMove = false;
                     Attack(entity);
                 }
                 //else
@@ -37,9 +38,10 @@ public class EnemyTanker : Entity
             }
             else
             {
-                Move();
+                isMove = true;
             }
         }
+        if(isMove)  Move();
         barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
         barSprite.fillAmount = _hp / stat.MaxHp;
     }

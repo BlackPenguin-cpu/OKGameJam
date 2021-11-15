@@ -14,7 +14,7 @@ public abstract class Tower : MonoBehaviour
         if(ATCooldown < nowATCooldown)
         {
             nowATCooldown = 0;
-            Attack();
+            Attack(); 
         }
     }
     protected abstract void Attack();

@@ -11,7 +11,6 @@ public class EnemyCloser2 : Entity
     public float attacktimeMax;
     public Image barSprite;
     public float barY;
-
     private void Start()
     {
         stat = new StatInfo { Damage = 8, speed = 2, MaxHp = 17, Score = 400, type = StatInfo.Type.ENEMY, defence = 3 };
@@ -30,10 +29,6 @@ public class EnemyCloser2 : Entity
                     stat.speed = 0;
                     Attack(entity);
                 }
-                //else
-                //{
-                //    Move();
-                //}
             }
             else
             {

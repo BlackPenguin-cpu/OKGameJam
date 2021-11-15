@@ -51,7 +51,7 @@ public class EnemyVampire : Entity
                     if (skilltime >= skilltimeMax)
                     {
                         Invoke("Skill", 2);
-                        Skill();
+                        //Skill();
                         entity.GetComponent<Entity>()._hp = -(4 - entity.stat.defence);
                     }
                 }
