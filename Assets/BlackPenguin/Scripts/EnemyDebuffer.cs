@@ -13,6 +13,7 @@ public class EnemyDebuffer : Entity
     public float skilltimeMax;
     public Image barSprite;
     public float barY;
+    public bool isMove;
 
     private void Start()
     {
@@ -30,13 +31,13 @@ public class EnemyDebuffer : Entity
                 Entity entity = hit.collider.gameObject.GetComponent<Entity>();
                 if (entity.stat.type != this.stat.type)
                 {
-                    stat.speed = 0;
+                    isMove = false;
                     Attack(entity);
                 }
             }
             else
             {
-                Move();
+                isMove = true;
             }
         }
         if (skilltime >= skilltimeMax)
@@ -44,6 +45,7 @@ public class EnemyDebuffer : Entity
             Invoke("Skill", 2);
             stat.speed = 0;
         }
+        if (isMove) Move();
         barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
         barSprite.fillAmount = _hp / stat.MaxHp;
     }

@@ -12,6 +12,7 @@ public class EnemyVampire : Entity
     public float skilltime;
     public float skilltimeMax;
     public float skillcrossroad;
+    public bool isMove;
     public Image barSprite;
     public float barY;
 
@@ -31,13 +32,13 @@ public class EnemyVampire : Entity
                 Entity entity = hit.collider.gameObject.GetComponent<Entity>();
                 if (entity.stat.type != this.stat.type)
                 {
-                    stat.speed = 0;
+                    isMove = false;
                     Attack(entity);
                 }
             }
             else
             {
-                Move();
+                isMove = true;
             }
         }
         foreach (var hit2 in rayHit2)
@@ -56,6 +57,7 @@ public class EnemyVampire : Entity
                 }
             }
         }
+        if (isMove) Move();
         skilltime += Time.deltaTime;
         barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
         barSprite.fillAmount = _hp / stat.MaxHp;

@@ -14,6 +14,7 @@ public class EnemySpawner : Entity
     public float spawntimeMax;
     public Image barSprite;
     public float barY;
+    public bool isMove;
 
     private void Start()
     {
@@ -31,13 +32,13 @@ public class EnemySpawner : Entity
                 Entity entity = hit.collider.gameObject.GetComponent<Entity>();
                 if (entity.stat.type != this.stat.type)
                 {
-                    stat.speed = 0;
+                    isMove = false;
                     Attack(entity);
                 }
             }
             else
             {
-                Move();
+                isMove = true;
             }
         }
         if(spawntime >= spawntimeMax)
@@ -45,6 +46,7 @@ public class EnemySpawner : Entity
             Invoke("Spawn", 2);
             stat.speed = 0;
         }
+        if (isMove) Move();
         barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
         barSprite.fillAmount = _hp / stat.MaxHp;
     }

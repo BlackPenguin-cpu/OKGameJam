@@ -9,6 +9,7 @@ public class EnemyCloser2 : Entity
     public RaycastHit2D hit; 
     public float attacktime;
     public float attacktimeMax;
+    public bool isMove;
     public Image barSprite;
     public float barY;
     private void Start()
@@ -26,15 +27,16 @@ public class EnemyCloser2 : Entity
                 Entity entity = hit.collider.gameObject.GetComponent<Entity>();
                 if (entity.stat.type != this.stat.type)
                 {
-                    stat.speed = 0;
+                    isMove = false;
                     Attack(entity);
                 }
             }
             else
             {
-                Move();
+                isMove = true;
             }
         }
+        if (isMove) Move();
         barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
         barSprite.fillAmount = _hp / stat.MaxHp;
     }
