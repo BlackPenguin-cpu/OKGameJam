@@ -13,10 +13,13 @@ public class EnemyFaraway : Entity
     public Image barSprite;
     public float barY;
     public bool isMove;
+    public bool isAttack;
+    Animator animator;
 
     private void Start()
     {
-        stat = new StatInfo { speed = 0.7f, MaxHp = 9, Score = 500, type = StatInfo.Type.ENEMY, defence = 1 };
+        animator = GetComponent<Animator>();
+        stat = new StatInfo { speed = 0.7f, MaxHp = 12, Score = 500, type = StatInfo.Type.ENEMY, defence = 1 };
     }
     void Update()
     {
@@ -41,7 +44,10 @@ public class EnemyFaraway : Entity
         if (isMove) Move();
         barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
         barSprite.fillAmount = _hp / stat.MaxHp;
+        
     }
+
+    
 
     public override void Move()
     {
@@ -52,9 +58,10 @@ public class EnemyFaraway : Entity
         attacktime += 1 * Time.deltaTime;
         if (attacktime >= attacktimeMax)
         {
+            animator.SetTrigger("isAttack");
             attacktime = 0;
             Debug.Log("น฿ป็");
-            EnemyBullet bullet = Instantiate(Bullet, transform.position, Quaternion.identity).GetComponent<EnemyBullet>();
+            EnemyBullet bullet = Instantiate(Bullet, transform.position + new Vector3(0, -0.3f, 0), Quaternion.identity).GetComponent<EnemyBullet>();
             bullet.target = entity.gameObject;
             bullet.IsEnemy = true;
             bullet.Damage = 5;

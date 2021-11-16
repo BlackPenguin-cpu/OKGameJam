@@ -18,7 +18,7 @@ public class EnemySpawner : Entity
 
     private void Start()
     {
-        stat = new StatInfo { Damage = 12, speed = 0.4f, MaxHp = 17, Score = 1500, type = StatInfo.Type.ENEMY, defence = 5 };
+        stat = new StatInfo { Damage = 12, speed = 0.4f, MaxHp = 20, Score = 1500, type = StatInfo.Type.ENEMY, defence = 5 };
     }
     void Update()
     {

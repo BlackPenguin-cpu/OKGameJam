@@ -17,7 +17,7 @@ public class EnemyDebuffer : Entity
 
     private void Start()
     {
-        stat = new StatInfo { Damage = 7, speed = 1, MaxHp = 9, Score = 1100, type = StatInfo.Type.ENEMY, defence = 5 };
+        stat = new StatInfo { Damage = 7, speed = 1, MaxHp = 17, Score = 1100, type = StatInfo.Type.ENEMY, defence = 5 };
     }
     void Update()
     {
