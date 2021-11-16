@@ -275,9 +275,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.6491796, y: -0.018705899}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.8348375
 --- !u!114 &-7866049397255733996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,13 +292,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stat:
     Damage: 11
-    MaxHp: 14
+    MaxHp: 23
     Defence: 3
     Score: 1300
     isDie: 0
     isTower: 0
     type: 0
-  hp: 14
+  hp: 23
   crossroad: 1.2
   attacktime: 4.5
   attacktimeMax: 4.5

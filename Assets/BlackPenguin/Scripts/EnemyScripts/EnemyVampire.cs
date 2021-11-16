@@ -18,7 +18,7 @@ public class EnemyVampire : Entity
 
     private void Start()
     {
-        stat = new StatInfo { Damage = 11, speed = 1.3f, MaxHp = 14, Score = 1300, type = StatInfo.Type.ENEMY, defence = 3 };
+        stat = new StatInfo { Damage = 11, speed = 1.3f, MaxHp = 23, Score = 1300, type = StatInfo.Type.ENEMY, defence = 3 };
     }
     void Update()
     {
