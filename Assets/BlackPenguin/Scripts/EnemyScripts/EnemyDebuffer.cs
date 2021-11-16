@@ -14,9 +14,11 @@ public class EnemyDebuffer : Entity
     public Image barSprite;
     public float barY;
     public bool isMove;
+    Animator animator;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         stat = new StatInfo { Damage = 7, speed = 1, MaxHp = 17, Score = 1100, type = StatInfo.Type.ENEMY, defence = 5 };
     }
     void Update()
@@ -59,6 +61,7 @@ public class EnemyDebuffer : Entity
         attacktime += 1 * Time.deltaTime;
         if (attacktime >= attacktimeMax)
         {
+            animator.SetTrigger("isAttack");
             attacktime = 0;
             base.Attack(entity);
         }

@@ -15,9 +15,11 @@ public class EnemyVampire : Entity
     public bool isMove;
     public Image barSprite;
     public float barY;
+    Animator animator;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         stat = new StatInfo { Damage = 11, speed = 1.3f, MaxHp = 23, Score = 1300, type = StatInfo.Type.ENEMY, defence = 3 };
     }
     void Update()
@@ -72,6 +74,7 @@ public class EnemyVampire : Entity
         attacktime += 1 * Time.deltaTime;
         if (attacktime >= attacktimeMax)
         {
+            animator.SetTrigger("isAttack");
             attacktime = 0;
             base.Attack(entity);
         }

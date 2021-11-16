@@ -27,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 6299330029482051}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 6993264683168929764}
   m_RootOrder: 0
@@ -205,7 +205,7 @@ Transform:
   m_GameObject: {fileID: 9150754081024940362}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.7008, y: -1.8938, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 3.4, y: 3.4, z: 1}
   m_Children:
   - {fileID: 6993264683168929764}
   m_Father: {fileID: 0}
@@ -306,7 +306,7 @@ MonoBehaviour:
   spawntime: 6
   spawntimeMax: 6
   barSprite: {fileID: 8624469965963989765}
-  barY: 1.5
+  barY: 1.7
   isMove: 0
 --- !u!50 &9150754081024940365
 Rigidbody2D:

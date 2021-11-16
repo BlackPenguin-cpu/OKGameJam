@@ -15,9 +15,11 @@ public class EnemySpawner : Entity
     public Image barSprite;
     public float barY;
     public bool isMove;
+    Animator animator;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         stat = new StatInfo { Damage = 12, speed = 0.4f, MaxHp = 20, Score = 1500, type = StatInfo.Type.ENEMY, defence = 5 };
     }
     void Update()
@@ -60,6 +62,7 @@ public class EnemySpawner : Entity
         attacktime += 1 * Time.deltaTime;
         if (attacktime >= attacktimeMax)
         {
+            animator.SetTrigger("isAttack");
             attacktime = 0;
             base.Attack(entity);
         }

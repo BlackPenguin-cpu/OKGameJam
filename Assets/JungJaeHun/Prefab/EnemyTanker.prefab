@@ -124,7 +124,7 @@ MonoBehaviour:
     isTower: 0
     type: 0
   hp: 35
-  crossroad: 1
+  crossroad: 2.6
   attacktime: 7
   attacktimeMax: 7
   isMove: 0

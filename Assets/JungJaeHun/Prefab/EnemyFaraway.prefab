@@ -131,6 +131,7 @@ MonoBehaviour:
   barSprite: {fileID: 8218362038542193925}
   barY: 1.6
   isMove: 0
+  isAttack: 0
 --- !u!50 &642555813845834024
 Rigidbody2D:
   serializedVersion: 4

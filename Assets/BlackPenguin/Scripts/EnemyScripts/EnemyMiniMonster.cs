@@ -12,9 +12,11 @@ public class EnemyMiniMonster : Entity
     public Image barSprite;
     public float barY;
     public bool isMove;
+    Animator animator;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         stat = new StatInfo { Damage = 6, speed = 1.2f, MaxHp = 7, Score = 50, type = StatInfo.Type.ENEMY, defence = 1 };
     }
     void Update()
@@ -51,6 +53,7 @@ public class EnemyMiniMonster : Entity
         attacktime += 1 * Time.deltaTime;
         if (attacktime >= attacktimeMax)
         {
+            animator.SetTrigger("isAttack");
             attacktime = 0;
             base.Attack(entity);
         }

@@ -12,9 +12,11 @@ public class EnemyCloser : Entity
     public Image barSprite;
     public float barY;
     public bool isMove;
+    Animator animator;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         stat = new StatInfo { Damage = 5, speed = 1, MaxHp = 10, Score = 100, type = StatInfo.Type.ENEMY, defence = 1 };
     }
     void Update()
@@ -51,6 +53,7 @@ public class EnemyCloser : Entity
         attacktime += 1 *  Time.deltaTime;
         if (attacktime >= attacktimeMax)
         {
+            animator.SetTrigger("isAttack");
             attacktime = 0;
             Debug.Log("1");
             base.Attack(entity);

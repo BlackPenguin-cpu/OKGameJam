@@ -130,7 +130,7 @@ Transform:
   m_GameObject: {fileID: 6918121330804213587}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.56, y: -2, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_Children:
   - {fileID: 5974692213936878099}
   m_Father: {fileID: 0}
@@ -225,8 +225,8 @@ MonoBehaviour:
     type: 0
   hp: 7
   crossroad: 1
-  attacktime: 3
-  attacktimeMax: 3
+  attacktime: 2.5
+  attacktimeMax: 2.5
   barSprite: {fileID: 686619921531515152}
   barY: 1
   isMove: 0

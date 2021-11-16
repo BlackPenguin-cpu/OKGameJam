@@ -18,9 +18,11 @@ public class EnemyLastBoss : Entity
     public GameObject BossText;
     public float barY;
     public bool isMove;
+    Animator animator;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         stat = new StatInfo { Damage = 20, speed = 0.3f, MaxHp = 777, Score = 7777, type = StatInfo.Type.ENEMY, defence = 10 };
     }
     void Update()
@@ -68,6 +70,7 @@ public class EnemyLastBoss : Entity
         attacktime += 1 * Time.deltaTime;
         if (attacktime >= attacktimeMax)
         {
+            animator.SetTrigger("isAttack");
             attacktime = 0;
             base.Attack(entity);
         }

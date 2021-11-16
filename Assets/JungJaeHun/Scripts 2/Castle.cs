@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class Castle : Entity
 {
     public bool IsEnd = false;
+    public Image barSprite;
+    public float barY;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,8 @@ public class Castle : Entity
         {
             Dead();
         }
+        barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
+        barSprite.fillAmount = _hp / stat.MaxHp;
     }
     public override void Move()
     {
