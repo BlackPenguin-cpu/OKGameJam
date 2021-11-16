@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 6252250173898664781}
   - component: {fileID: -7866049397255733996}
   - component: {fileID: 6252250173898664780}
+  - component: {fileID: -6235056333506231612}
   m_Layer: 0
   m_Name: EnemyVampire
   m_TagString: Entity
@@ -204,7 +205,7 @@ Transform:
   m_GameObject: {fileID: 6252250173898664779}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.81, y: -2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children:
   - {fileID: 4865626404687877488}
   m_Father: {fileID: 0}
@@ -250,8 +251,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.9579839, g: 0.031372547, b: 1, a: 1}
+  m_Sprite: {fileID: 2177022597673295171, guid: fa283ccff8a01b940966a6dd6ae45e51, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -298,12 +299,13 @@ MonoBehaviour:
     isTower: 0
     type: 0
   hp: 14
-  crossroad: 1
+  crossroad: 1.2
   attacktime: 4.5
   attacktimeMax: 4.5
   skilltime: 6.7
   skilltimeMax: 6.7
   skillcrossroad: 1
+  isMove: 0
   barSprite: {fileID: 845786652569581956}
   barY: 1
 --- !u!50 &6252250173898664780
@@ -327,3 +329,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 3
+--- !u!95 &-6235056333506231612
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6252250173898664779}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a731928a2ad245f468d53d044a129d92, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
