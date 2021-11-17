@@ -33,10 +33,6 @@ public class EnemyTanker : Entity
                     isMove = false;
                     Attack(entity);
                 }
-                //else
-                //{
-                //    Move();
-                //}
             }
             else
             {

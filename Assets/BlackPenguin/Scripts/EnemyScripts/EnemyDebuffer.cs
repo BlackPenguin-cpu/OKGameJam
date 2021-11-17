@@ -14,6 +14,7 @@ public class EnemyDebuffer : Entity
     public Image barSprite;
     public float barY;
     public bool isMove;
+    public GameObject Effect;
     Animator animator;
 
     private void Start()
@@ -44,8 +45,13 @@ public class EnemyDebuffer : Entity
         }
         if (skilltime >= skilltimeMax)
         {
+            Effect.gameObject.SetActive(true);
             Invoke("Skill", 2);
             stat.speed = 0;
+        }
+        else
+        {
+            Effect.gameObject.SetActive(false);
         }
         if (isMove) Move();
         barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
