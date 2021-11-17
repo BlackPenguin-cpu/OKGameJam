@@ -19,7 +19,7 @@ public class TowerHealing : Tower
     // Start is called before the first frame update
     void Start()
     {
-        ATCooldown = 30;    
+        ATCooldown = 20;    
     }
 
     // Update is called once per frame
