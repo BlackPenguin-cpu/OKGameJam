@@ -16,9 +16,11 @@ public class EnemyOnceBoss : Entity
     public Image BackGrowndBoss;
     public GameObject BossText;
     public float barY;
+    Animator animator;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         stat = new StatInfo { Damage = 15, speed = 0.8f, MaxHp = 200, Score = 3000, type = StatInfo.Type.ENEMY, defence = 6 };
     }
     void Update()
@@ -45,10 +47,10 @@ public class EnemyOnceBoss : Entity
         barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
         barSprite.fillAmount = _hp / stat.MaxHp;
         barSpriteBoss.fillAmount = _hp / stat.MaxHp;
-        barSpriteBoss.transform.position = new Vector3(8.95f, 2.7f, 0);
-        nullbarSpriteBoss.transform.position = new Vector3(8.95f, 2.7f, 0);
-        BackGrowndBoss.transform.position = new Vector3(4.2f, 2.2f, 0);
-        BossText.transform.position = new Vector3(6f, 1.4f, 0);
+        barSpriteBoss.transform.position = new Vector3(10.65f, 2.6f, 0);
+        nullbarSpriteBoss.transform.position = new Vector3(10.65f, 2.6f, 0);
+        BackGrowndBoss.transform.position = new Vector3(6.5f, 2.2f, 0);
+        BossText.transform.position = new Vector3(8f, 1.4f, 0);
     }
 
     public override void Move()
@@ -60,6 +62,7 @@ public class EnemyOnceBoss : Entity
         attacktime += 1 * Time.deltaTime;
         if (attacktime >= attacktimeMax)
         {
+            animator.SetTrigger("isAttack");
             attacktime = 0;
             Debug.Log("1");
             base.Attack(entity);

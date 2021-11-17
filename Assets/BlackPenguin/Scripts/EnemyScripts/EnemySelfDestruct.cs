@@ -65,7 +65,6 @@ public class EnemySelfDestruct : Entity
         if(AttackReady == 1)
         {
             animator.SetTrigger("isAttack");
-            Debug.Log("ÀÚÆø ÁØºñ");
         }
     }
     protected override void Attack(Entity entity)

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Effect : MonoBehaviour
 {
+    public float Delay = 0;
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("Destroy", 0.5f);
+        Invoke("Destroy", Delay);
     }
 
     void Destroy()
