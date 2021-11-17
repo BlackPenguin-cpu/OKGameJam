@@ -75,6 +75,7 @@ public class EnemySpawner : Entity
 
     void Spawn()
     {
+        animator.SetTrigger("isSkill");
         CancelInvoke("Spawn");
         spawntime = 0;
         Instantiate(MiniMonster, transform.position + new Vector3(-0.3f,-0.2f,0), Quaternion.identity);

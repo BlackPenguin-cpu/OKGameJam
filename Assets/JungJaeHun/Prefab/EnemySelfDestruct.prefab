@@ -125,11 +125,13 @@ MonoBehaviour:
     type: 0
   hp: 5
   crossroad: 0.85
+  crossroad2: 9
   attacktime: 100
   attacktimeMax: 100
   barSprite: {fileID: 4160490923273961208}
   barY: 1
   isMove: 0
+  Effect: {fileID: 6770081996149430049, guid: cbb63879481d7424db7705b5b605fa43, type: 3}
 --- !u!50 &215677706342074090
 Rigidbody2D:
   serializedVersion: 4
