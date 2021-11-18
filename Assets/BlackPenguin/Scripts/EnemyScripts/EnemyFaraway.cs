@@ -11,6 +11,7 @@ public class EnemyFaraway : Entity
     public float attacktimeMax;
     public GameObject Bullet;
     public Image barSprite;
+    public Image barSpriteNULL;
     public float barY;
     public bool isMove;
     public bool isAttack;
@@ -44,7 +45,7 @@ public class EnemyFaraway : Entity
         if (isMove) Move();
         barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
         barSprite.fillAmount = _hp / stat.MaxHp;
-        
+        barSpriteNULL.transform.position = this.transform.position + new Vector3(0, barY, 0);
     }
 
     

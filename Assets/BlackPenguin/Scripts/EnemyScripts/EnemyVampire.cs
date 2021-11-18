@@ -14,6 +14,7 @@ public class EnemyVampire : Entity
     public float skillcrossroad;
     public bool isMove;
     public Image barSprite;
+    public Image barSpriteNULL;
     public float barY;
     Animator animator;
 
@@ -49,26 +50,11 @@ public class EnemyVampire : Entity
                 isMove = true;
             }
         }
-        //foreach (var hit2 in rayHit2)
-        //{
-        //    if (hit2.collider.gameObject != this.gameObject && hit2.collider.gameObject.GetComponent<Entity>() != null)
-        //    {
-        //        Entity entity = hit2.collider.gameObject.GetComponent<Entity>();
-        //        if (entity.stat.type != this.stat.type)
-        //        {
-        //            if (skilltime >= skilltimeMax)
-        //            {
-        //                skilltime = 0;
-        //                Skill();
-        //                entity.GetComponent<Entity>()._hp = -(4 - entity.stat.defence);
-        //            }
-        //        }
-        //    }
-        //}
         if (isMove) Move();
         skilltime += Time.deltaTime;
         barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
         barSprite.fillAmount = _hp / stat.MaxHp;
+        barSpriteNULL.transform.position = this.transform.position + new Vector3(0, barY, 0);
     }
 
     public override void Move()

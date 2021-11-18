@@ -7,6 +7,7 @@ public class Castle : Entity
 {
     public bool IsEnd = false;
     public Image barSprite;
+    public Image barSpriteNULL;
     public float barY;
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class Castle : Entity
         }
         barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
         barSprite.fillAmount = _hp / stat.MaxHp;
+        barSpriteNULL.transform.position = this.transform.position + new Vector3(0, barY, 0);
     }
     public override void Move()
     {

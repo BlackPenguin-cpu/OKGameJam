@@ -11,6 +11,7 @@ public class EnemyMiniSelfDestruct : Entity
     public float attacktime;
     public float attacktimeMax;
     public Image barSprite;
+    public Image barSpriteNULL;
     public float barY;
     public bool isMove;
     public GameObject Effect;
@@ -57,6 +58,7 @@ public class EnemyMiniSelfDestruct : Entity
         if (isMove) Move();
         barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
         barSprite.fillAmount = _hp / stat.MaxHp;
+        barSpriteNULL.transform.position = this.transform.position + new Vector3(0, barY, 0);
     }
 
     public override void Move()

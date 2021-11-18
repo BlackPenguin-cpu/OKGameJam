@@ -11,10 +11,13 @@ public class EnemyOnceBoss : Entity
     public float attacktimeMax;
     public bool isMove;
     public Image barSprite;
+    public Image barSpriteNULL;
     public Image barSpriteBoss;
     public Image nullbarSpriteBoss;
     public Image BackGrowndBoss;
+    public Image BossPicture;
     public GameObject BossText;
+    public GameObject BossDead;
     public float barY;
     Animator animator;
 
@@ -50,7 +53,9 @@ public class EnemyOnceBoss : Entity
         barSpriteBoss.transform.position = new Vector3(10.65f, 2.6f, 0);
         nullbarSpriteBoss.transform.position = new Vector3(10.65f, 2.6f, 0);
         BackGrowndBoss.transform.position = new Vector3(6.5f, 2.2f, 0);
-        BossText.transform.position = new Vector3(8f, 1.4f, 0);
+        BossText.transform.position = new Vector3(9f, 1.4f, 0);
+        BossPicture.transform.position = new Vector3(6.27f, 2.6f, 0);
+        barSpriteNULL.transform.position = this.transform.position + new Vector3(0, barY, 0);
     }
 
     public override void Move()
@@ -71,6 +76,7 @@ public class EnemyOnceBoss : Entity
 
     protected override void Dead()
     {
+        Instantiate(BossDead, transform.position + new Vector3(0, -2, 0), Quaternion.identity);
         Destroy(this.gameObject);
         Debug.Log("¾ê »ç¸Á");
     }
