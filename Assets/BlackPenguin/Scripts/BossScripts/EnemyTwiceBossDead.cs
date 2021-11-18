@@ -26,6 +26,7 @@ public class EnemyTwiceBossDead : MonoBehaviour
 
     void Delete()
     {
+        Debug.Log("Á×À½");
         Destroy(this.gameObject);
     }
 }
