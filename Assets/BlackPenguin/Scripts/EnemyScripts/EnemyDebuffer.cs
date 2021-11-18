@@ -12,6 +12,7 @@ public class EnemyDebuffer : Entity
     public float skilltime;
     public float skilltimeMax;
     public Image barSprite;
+    public Image barSpriteNULL;
     public float barY;
     public bool isMove;
     public GameObject Effect;
@@ -56,6 +57,7 @@ public class EnemyDebuffer : Entity
         if (isMove) Move();
         barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
         barSprite.fillAmount = _hp / stat.MaxHp;
+        barSpriteNULL.transform.position = this.transform.position + new Vector3(0, barY, 0);
     }
 
     public override void Move()

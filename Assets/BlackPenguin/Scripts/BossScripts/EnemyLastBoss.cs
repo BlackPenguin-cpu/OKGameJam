@@ -12,10 +12,13 @@ public class EnemyLastBoss : Entity
     public float skilltime;
     public float skilltimeMax;
     public Image barSprite;
+    public Image barSpriteNULL;
     public Image barSpriteBoss;
     public Image nullbarSpriteBoss;
     public Image BackGrowndBoss;
+    public Image BossPicture;
     public GameObject BossText;
+    public GameObject BossDead;
     public float barY;
     public bool isMove;
     public int AnimationCheak = 0;
@@ -24,7 +27,7 @@ public class EnemyLastBoss : Entity
     private void Start()
     {
         animator = GetComponent<Animator>();
-        stat = new StatInfo { Damage = 20, speed = 0.3f, MaxHp = 777, Score = 7777, type = StatInfo.Type.ENEMY, defence = 10 };
+        stat = new StatInfo { Damage = 20, speed = 0.05f, MaxHp = 877, Score = 7777, type = StatInfo.Type.ENEMY, defence = 10 };
     }
     void Update()
     {
@@ -64,7 +67,9 @@ public class EnemyLastBoss : Entity
         barSpriteBoss.transform.position = new Vector3(10.65f, 2.6f, 0);
         nullbarSpriteBoss.transform.position = new Vector3(10.65f, 2.6f, 0);
         BackGrowndBoss.transform.position = new Vector3(6.5f, 2.2f, 0);
-        BossText.transform.position = new Vector3(8f, 1.4f, 0);
+        BossText.transform.position = new Vector3(9f, 1.4f, 0);
+        BossPicture.transform.position = new Vector3(6.27f, 2.6f, 0);
+        barSpriteNULL.transform.position = this.transform.position + new Vector3(0, barY, 0);
     }
 
     public override void Move()
@@ -84,6 +89,7 @@ public class EnemyLastBoss : Entity
 
     protected override void Dead()
     {
+        Instantiate(BossDead, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 
