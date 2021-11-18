@@ -50,6 +50,8 @@ public abstract class Entity : MonoBehaviour
 {
     ///<summary> damage hp defence speed isdie type(ENEMY, FRIENDLY)</summary>
     public StatInfo stat;
+    public int buffWeak = 0;
+    public bool slow;
     [SerializeField] private float hp;
     public virtual float _hp
     {
@@ -72,43 +74,11 @@ public abstract class Entity : MonoBehaviour
             }
             else
             {
-                Debug.Log("3차차단" + value);
+                Debug.Log($"{gameObject.name}가 {value}만큼의 데미지를 받음");
                 hp = hp + value;
             }
         }
     }
-
-    //public virtual float Get_hp()
-    //{
-    //    return hp;
-    //}
-    //public virtual void Set_hp(float value)
-    //{
-    //    if (Get_hp() > Get_hp() + value)
-    //    {
-    //        if (stat.defence > -value&& value < 0)
-    //        {
-    //            return;
-    //        }
-    //        else
-    //        {
-    //            hp = value + stat.defence;
-    //        }
-    //    }
-    //    if (Get_hp() + value < 0)
-    //    {
-    //        hp = 0;
-    //        Dead();
-    //    }
-    //    else if (Get_hp()+value > stat.MaxHp)
-    //    {
-    //        hp = stat.MaxHp;
-    //    }
-    //    else
-    //    {
-    //        hp = Get_hp();
-    //    }
-    //}
 
     public virtual void Move() // 기본적으로 유닛만 이 함수를 사용함
     {
@@ -119,8 +89,30 @@ public abstract class Entity : MonoBehaviour
     {
         if (stat.Damage - entity.stat.defence > 0)
         {
-            entity.GetComponent<Entity>()._hp = -(stat.Damage - entity.stat.defence);
-            //entity.GetComponent<Entity>().hp -= (stat.Damage - entity.stat.defence);
+            if (buffWeak > 0)
+            {
+                entity.GetComponent<Entity>()._hp = -((stat.Damage * (buffWeak * 0.05f)) - entity.stat.defence);
+            }
+            else
+                entity.GetComponent<Entity>()._hp = -(stat.Damage - entity.stat.defence);
+        }
+    }
+    public IEnumerator BuffWeak()
+    {
+        buffWeak++;
+        yield return new WaitForSeconds(10);
+        buffWeak--;
+    }
+    public IEnumerator BuffSlow()
+    {
+        if (!slow)
+        {
+            slow = true;
+            float value = stat.speed * 0.4f;
+            stat.speed -= value;
+            yield return new WaitForSeconds(5);
+            stat.speed += value;
+            slow = false;
         }
     }
     protected abstract void Dead();

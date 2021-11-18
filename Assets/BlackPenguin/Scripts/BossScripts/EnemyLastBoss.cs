@@ -18,6 +18,7 @@ public class EnemyLastBoss : Entity
     public GameObject BossText;
     public float barY;
     public bool isMove;
+    public int AnimationCheak = 0;
     Animator animator;
 
     private void Start()
@@ -50,15 +51,20 @@ public class EnemyLastBoss : Entity
         {
             Invoke("Skill", 2);
             stat.speed = 0;
+            AnimationCheak++;
+        }
+        if(AnimationCheak == 1)
+        {
+            animator.SetTrigger("isSkill");
         }
         if (isMove) Move();
         barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
         barSprite.fillAmount = _hp / stat.MaxHp;
         barSpriteBoss.fillAmount = _hp / stat.MaxHp;
-        barSpriteBoss.transform.position = new Vector3(8.95f, 2.7f, 0);
-        nullbarSpriteBoss.transform.position = new Vector3(8.95f, 2.7f, 0);
-        BackGrowndBoss.transform.position = new Vector3(4.2f, 2.2f, 0);
-        BossText.transform.position = new Vector3(6f, 1.4f, 0);
+        barSpriteBoss.transform.position = new Vector3(10.65f, 2.6f, 0);
+        nullbarSpriteBoss.transform.position = new Vector3(10.65f, 2.6f, 0);
+        BackGrowndBoss.transform.position = new Vector3(6.5f, 2.2f, 0);
+        BossText.transform.position = new Vector3(8f, 1.4f, 0);
     }
 
     public override void Move()
@@ -83,6 +89,7 @@ public class EnemyLastBoss : Entity
 
     void Skill()
     {
+        AnimationCheak = 0;
         CancelInvoke("Skill");
         skilltime = 0;
         Debug.Log("즉사 스킬 사용");

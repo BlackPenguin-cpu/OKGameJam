@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 29366711465850350}
   - component: {fileID: -1315994312680225573}
   - component: {fileID: 29366711465850351}
+  - component: {fileID: 237575265343181691}
   m_Layer: 0
   m_Name: EnemyTwiceBoss
   m_TagString: Entity
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 29366711465850344}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.11, y: -2, z: 0}
-  m_LocalScale: {x: 1.7, y: 1.7, z: 1}
+  m_LocalScale: {x: 0.85, y: 0.85, z: 1}
   m_Children:
   - {fileID: 2277492830488738630}
   m_Father: {fileID: 0}
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.22049361, g: 0.012237449, b: 0.5188679, a: 1}
+  m_Sprite: {fileID: -8084739078138460427, guid: 28e22054223e2fb44ade8b1094567215, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,9 +100,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 1.01, y: -0.75}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 2.5218408
 --- !u!114 &-1315994312680225573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +124,7 @@ MonoBehaviour:
     isTower: 0
     type: 0
   hp: 450
-  crossroad: 1.7
+  crossroad: 2.6
   attacktime: 2.5
   attacktimeMax: 2.5
   MiniMonster: {fileID: 1488372538434273752, guid: 9baea4b3e2810c248bf5a911552f1dce, type: 3}
@@ -134,7 +135,7 @@ MonoBehaviour:
   nullbarSpriteBoss: {fileID: 6490792255528609013}
   BackGrowndBoss: {fileID: 7158228126973990066}
   BossText: {fileID: 2562227041671600924}
-  barY: 1.5
+  barY: 1.7
   isMove: 0
 --- !u!50 &29366711465850351
 Rigidbody2D:
@@ -157,6 +158,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 3
+--- !u!95 &237575265343181691
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29366711465850344}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d8c22955497c9b84087025a862b3a805, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &972086980011884721
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,7 +212,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.31256104, y: -1.0881958}
-  m_SizeDelta: {x: 6.98, y: 2.38}
+  m_SizeDelta: {x: 9.4, y: 4.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5199635996527239519
 CanvasRenderer:
@@ -366,8 +386,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 5
-  m_fontSizeBase: 5
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -550,7 +570,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.31256104, y: -1.0881958}
-  m_SizeDelta: {x: 12, y: 1.7}
+  m_SizeDelta: {x: 19, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8649611443868330203
 CanvasRenderer:
@@ -625,7 +645,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.8401489, y: -0.92492676}
-  m_SizeDelta: {x: 7, y: 2.3}
+  m_SizeDelta: {x: 9.4, y: 4.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7257718385037333548
 CanvasRenderer:
@@ -700,7 +720,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 2, y: 0.2}
+  m_SizeDelta: {x: 4.5, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2226233784244280663
 CanvasRenderer:

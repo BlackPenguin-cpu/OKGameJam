@@ -19,9 +19,11 @@ public class EnemyTwiceBoss : Entity
     public GameObject BossText;
     public float barY;
     public bool isMove;
+    Animator animator;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         stat = new StatInfo { Damage = 17, speed = 0.6f, MaxHp = 450, Score = 5000, type = StatInfo.Type.ENEMY, defence = 7 };
     }
     void Update()
@@ -54,10 +56,10 @@ public class EnemyTwiceBoss : Entity
         barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
         barSprite.fillAmount = _hp / stat.MaxHp;
         barSpriteBoss.fillAmount = _hp / stat.MaxHp;
-        barSpriteBoss.transform.position = new Vector3(8.95f, 2.7f, 0);
-        nullbarSpriteBoss.transform.position = new Vector3(8.95f, 2.7f, 0);
-        BackGrowndBoss.transform.position = new Vector3(4.2f, 2.2f, 0);
-        BossText.transform.position = new Vector3(6f, 1.4f, 0);
+        barSpriteBoss.transform.position = new Vector3(10.65f, 2.6f, 0);
+        nullbarSpriteBoss.transform.position = new Vector3(10.65f, 2.6f, 0);
+        BackGrowndBoss.transform.position = new Vector3(6.5f, 2.2f, 0);
+        BossText.transform.position = new Vector3(8f, 1.4f, 0);
     }
 
     public override void Move()
@@ -69,6 +71,7 @@ public class EnemyTwiceBoss : Entity
         attacktime += 1 * Time.deltaTime;
         if (attacktime >= attacktimeMax)
         {
+            animator.SetTrigger("isAttack");
             attacktime = 0;
             base.Attack(entity);
         }
@@ -81,6 +84,7 @@ public class EnemyTwiceBoss : Entity
 
     void Spawn()
     {
+        animator.SetTrigger("isSkill");
         CancelInvoke("Spawn");
         spawntime = 0;
         Instantiate(MiniMonster, transform.position + new Vector3(-0.6f, -0.3f, 0), Quaternion.identity);
