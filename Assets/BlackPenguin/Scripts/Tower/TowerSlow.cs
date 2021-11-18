@@ -11,6 +11,7 @@ public class TowerSlow : Tower
     }
     protected override void Attack()
     {
+        Debug.Log($"{gameObject.name}АјАн");
         foreach (GameObject gameObject in gameObjects)
         {
             Entity target = gameObject.GetComponent<Entity>();

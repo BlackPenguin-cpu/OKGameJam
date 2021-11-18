@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TowerHealing : Tower
 {
-    List<Entity> entity;
+    [SerializeField] List<Entity> entity;
     protected override void Attack()
     {
         foreach(Entity entity in entity)
@@ -21,10 +21,5 @@ public class TowerHealing : Tower
     {
         ATCooldown = 20;    
     }
-
-    // Update is called once per frame
-    protected override void Update()
-    {
-        
-    }
+    
 }

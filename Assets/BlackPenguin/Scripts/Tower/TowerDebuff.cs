@@ -11,12 +11,13 @@ public class TowerDebuff : Tower
     }
     protected override void Attack()
     {
-            Entity target = gameObjects[Random.Range(1,gameObjects.Count)].GetComponent<Entity>();
+            Entity target = gameObjects[Random.Range(0,gameObjects.Count)].GetComponent<Entity>();
             target.StartCoroutine(target.BuffWeak());
         
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.GetComponent<Entity>().stat.type == StatInfo.Type.ENEMY)
         gameObjects.Add(collision.gameObject);
     }
     private void OnTriggerExit2D(Collider2D collision)
