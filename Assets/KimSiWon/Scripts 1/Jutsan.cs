@@ -2,26 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SeItem : Intreraction
+public class Jutsan : MonoBehaviour
 {
-    public int Money = 0;
-
-    protected override void Action()
-    {
-        
-    }
-
+    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-   
+    // Update is called once per frame
     void Update()
     {
         
-       
     }
-    
 }
-
