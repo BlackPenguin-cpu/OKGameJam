@@ -10,7 +10,8 @@ public struct StatInfo
     public float Damage;
     public float MaxHp;
     [SerializeField] private float Defence;
-    public float Score;//??????????? 이거 뭐임???
+    ///<summary> Type이 Frineldy일시 Cost 로 계산 </summary>
+    public float Score;
     public float defence
     {
         get { return Defence; }
@@ -83,7 +84,10 @@ public abstract class Entity : MonoBehaviour
             }
         }
     }
-
+    protected virtual void Start()
+    {
+        hp = _hp;
+    }
     public virtual void Move() // 기본적으로 유닛만 이 함수를 사용함
     {
         if (stat.type == StatInfo.Type.ENEMY)
