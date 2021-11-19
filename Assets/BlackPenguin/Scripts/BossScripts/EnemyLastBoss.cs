@@ -90,6 +90,7 @@ public class EnemyLastBoss : Entity
     protected override void Dead()
     {
         Instantiate(BossDead, transform.position, Quaternion.identity);
+        GameManager.Score = GameManager.Score + stat.Score;
         Destroy(this.gameObject);
     }
 

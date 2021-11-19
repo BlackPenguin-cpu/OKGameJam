@@ -64,13 +64,7 @@ public class EnemyCloser : Entity
     
     protected override void Dead()
     {
-        Destroy(this.gameObject);
-        Debug.Log("¾ê »ç¸Á");
         GameManager.Score = GameManager.Score + stat.Score;
+        Destroy(this.gameObject);
     }
-    
-    //protected override void Action()
-    //{
-
-    //}
 }
