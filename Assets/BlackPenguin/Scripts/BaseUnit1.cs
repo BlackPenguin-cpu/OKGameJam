@@ -17,7 +17,7 @@ public class BaseUnit1 : Entity
     private void Start()
     {
         animator = GetComponent<Animator>();
-        stat = new StatInfo { Damage = 5, speed = 1, MaxHp = 10, Score = 100, type = StatInfo.Type.ENEMY, defence = 1 };
+        stat = new StatInfo { Damage = 3, speed = 1, MaxHp = 10, type = StatInfo.Type.FRIENDLY, defence = 0 };
     }
     void Update()
     {
@@ -46,7 +46,7 @@ public class BaseUnit1 : Entity
 
     public override void Move()
     {
-        transform.Translate(Vector3.left * stat.speed * Time.deltaTime);
+        base.Move();
     }
     protected override void Attack(Entity entity)
     {

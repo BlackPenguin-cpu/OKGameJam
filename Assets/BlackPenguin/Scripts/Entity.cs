@@ -10,7 +10,7 @@ public struct StatInfo
     public float Damage;
     public float MaxHp;
     [SerializeField] private float Defence;
-    public float Score;
+    public float Score;//??????????? 이거 뭐임???
     public float defence
     {
         get { return Defence; }
@@ -26,18 +26,24 @@ public struct StatInfo
     private float Speed;
     public float speed
     {
-        get { return Speed; }
+        get
+        {
+            if (slow) return Speed * 0.6f;
+            else return Speed;
+        }
         set
         {
             if (value < 0)
             {
-                value = 0;
+                Speed = 0;
             }
             Speed = value;
         }
     }
 
     public bool isDie;
+    public int buffWeak;
+    public bool slow;
     public bool isTower;
     public enum Type
     {
@@ -50,8 +56,6 @@ public abstract class Entity : MonoBehaviour
 {
     ///<summary> damage hp defence speed isdie type(ENEMY, FRIENDLY)</summary>
     public StatInfo stat;
-    public int buffWeak = 0;
-    public bool slow;
     [SerializeField] private float hp;
     public virtual float _hp
     {
@@ -82,16 +86,19 @@ public abstract class Entity : MonoBehaviour
 
     public virtual void Move() // 기본적으로 유닛만 이 함수를 사용함
     {
-        transform.Translate(Vector3.left * stat.speed * Time.deltaTime);
+        if (stat.type == StatInfo.Type.ENEMY)
+            transform.Translate(Vector3.left * stat.speed * Time.deltaTime);
+        else if (stat.type == StatInfo.Type.FRIENDLY)
+            transform.Translate(Vector3.right * stat.speed * Time.deltaTime);
     }
 
     protected virtual void Attack(Entity entity)
     {
         if (stat.Damage - entity.stat.defence > 0)
         {
-            if (buffWeak > 0)
+            if (stat.buffWeak > 0)
             {
-                entity.GetComponent<Entity>()._hp = -((stat.Damage * (buffWeak * 0.05f)) - entity.stat.defence);
+                entity.GetComponent<Entity>()._hp = -((stat.Damage * (stat.buffWeak * 0.05f)) - entity.stat.defence);
             }
             else
                 entity.GetComponent<Entity>()._hp = -(stat.Damage - entity.stat.defence);
@@ -99,21 +106,14 @@ public abstract class Entity : MonoBehaviour
     }
     public IEnumerator BuffWeak()
     {
-        buffWeak++;
+        stat.buffWeak++;
         yield return new WaitForSeconds(10);
-        buffWeak--;
+        stat.buffWeak--;
     }
     public IEnumerator BuffSlow()
     {
-        if (!slow)
-        {
-            slow = true;
-            float value = stat.speed * 0.4f;
-            stat.speed -= value;
-            yield return new WaitForSeconds(5);
-            stat.speed += value;
-            slow = false;
-        }
+        stat.slow = true;
+        yield return null;
     }
     protected abstract void Dead();
 }
