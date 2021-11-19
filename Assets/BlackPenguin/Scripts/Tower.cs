@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Tower : MonoBehaviour
 {
     public float ATCooldown;
-    private float nowATCooldown;
+    [SerializeField] private float nowATCooldown;
     public float damage;
 
     protected virtual void Update()

@@ -77,7 +77,7 @@ public class EnemyOnceBoss : Entity
     protected override void Dead()
     {
         Instantiate(BossDead, transform.position + new Vector3(0, -2, 0), Quaternion.identity);
+        GameManager.Score = GameManager.Score + stat.Score;
         Destroy(this.gameObject);
-        Debug.Log("¾ê »ç¸Á");
     }
 }

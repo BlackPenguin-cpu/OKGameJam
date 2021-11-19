@@ -84,7 +84,7 @@ public class EnemySelfDestruct : Entity
 
     protected override void Dead()
     {
+        GameManager.Score = GameManager.Score + stat.Score;
         Destroy(this.gameObject);
-        Debug.Log("¾ê »ç¸Á");
     }
 }

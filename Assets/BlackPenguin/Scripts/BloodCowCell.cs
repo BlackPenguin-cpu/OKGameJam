@@ -3,24 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyFaraway : Entity
+public class BloodCowCell : Entity
 {
-    public float crossroad;
-    public RaycastHit2D hit;
+    public float crossroad; //사거리
+    public RaycastHit2D hit; //레이캐스트 판정
     public float attacktime;
     public float attacktimeMax;
-    public GameObject Bullet;
     public Image barSprite;
-    public Image barSpriteNULL;
     public float barY;
     public bool isMove;
-    public bool isAttack;
+    [SerializeField] private List<Entity> entities;
     Animator animator;
 
-    private void Start()
+    protected override void Start()
     {
         animator = GetComponent<Animator>();
-        stat = new StatInfo { speed = 0.7f, MaxHp = 12, Score = 500, type = StatInfo.Type.ENEMY, defence = 1 };
+        stat = new StatInfo { Damage = 3 , speed = 2, MaxHp = 10, type = StatInfo.Type.FRIENDLY, defence = 4, Score = 50 };
+        base.Start();
+        attacktimeMax = 5;
+        crossroad = 2;
+        barY = 1;
     }
     void Update()
     {
@@ -31,10 +33,13 @@ public class EnemyFaraway : Entity
             if (hit.collider.gameObject != this.gameObject && hit.collider.gameObject.GetComponent<Entity>() != null)
             {
                 Entity entity = hit.collider.gameObject.GetComponent<Entity>();
+                attacktime += 1 * Time.deltaTime;
                 if (entity.stat.type != this.stat.type)
                 {
                     isMove = false;
-                    Attack(entity);
+                    if (attacktime >= attacktimeMax)
+                        Attack(entity);
+                    break;
                 }
             }
             else
@@ -45,34 +50,50 @@ public class EnemyFaraway : Entity
         if (isMove) Move();
         barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
         barSprite.fillAmount = _hp / stat.MaxHp;
-        barSpriteNULL.transform.position = this.transform.position + new Vector3(0, barY, 0);
     }
-
-    
 
     public override void Move()
     {
-        transform.Translate(Vector3.left * stat.speed * Time.deltaTime);
+        base.Move();
     }
     protected override void Attack(Entity entity)
     {
-        attacktime += 1 * Time.deltaTime;
         if (attacktime >= attacktimeMax)
         {
             animator.SetTrigger("isAttack");
             attacktime = 0;
-            Debug.Log("발사");
-            EnemyBullet bullet = Instantiate(Bullet, transform.position + new Vector3(0, -0.3f, 0), Quaternion.identity).GetComponent<EnemyBullet>();
-            bullet.target = entity.gameObject;
-            bullet.IsEnemy = true;
-            bullet.Damage = 5;
-            bullet.Speed = 5;
+            base.Attack(entity);
         }
     }
 
     protected override void Dead()
     {
-        GameManager.Score = GameManager.Score + stat.Score;
+        Entity[] entities = FindObjectsOfType<Entity>();
+        foreach(Entity entity in entities)
+        {
+            if(entity.stat.type == StatInfo.Type.FRIENDLY)
+            {
+                entity._hp = +7;
+            }
+        }
         Destroy(this.gameObject);
+        Debug.Log("얘 사망");
     }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if(collision.GetComponent<Entity>().stat.type == StatInfo.Type.FRIENDLY)
+    //    {
+    //        entities.Add(collision.GetComponent<Entity>());
+    //    }
+    //}
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    foreach(Entity entity in entities)
+    //    {
+    //        if (entity == collision.GetComponent<Entity>())
+    //        {
+    //            entities.Remove(entity);
+    //        }
+    //    }   
+    //}
 }

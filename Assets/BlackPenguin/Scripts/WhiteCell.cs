@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BaseUnit1 : Entity
+public class WhiteCell : Entity
 {
     public float crossroad; //사거리
     public RaycastHit2D hit; //레이캐스트 판정
@@ -17,7 +17,9 @@ public class BaseUnit1 : Entity
     private void Start()
     {
         animator = GetComponent<Animator>();
-        stat = new StatInfo { Damage = 5, speed = 1, MaxHp = 10, Score = 100, type = StatInfo.Type.ENEMY, defence = 1 };
+        stat = new StatInfo { Damage = 15, speed = 2, MaxHp = 5, type = StatInfo.Type.FRIENDLY, defence = 1, Score = 50 };
+        attacktimeMax = 8;
+        crossroad = 1.5f;
     }
     void Update()
     {
@@ -46,7 +48,7 @@ public class BaseUnit1 : Entity
 
     public override void Move()
     {
-        transform.Translate(Vector3.left * stat.speed * Time.deltaTime);
+        base.Move();
     }
     protected override void Attack(Entity entity)
     {
@@ -65,4 +67,5 @@ public class BaseUnit1 : Entity
         Destroy(this.gameObject);
         Debug.Log("얘 사망");
     }
+
 }

@@ -77,6 +77,7 @@ public class EnemyDebuffer : Entity
 
     protected override void Dead()
     {
+        GameManager.Score = GameManager.Score + stat.Score;
         Destroy(this.gameObject);
     }
 

@@ -3,24 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyFaraway : Entity
+public class ShieldCell : Entity
 {
-    public float crossroad;
-    public RaycastHit2D hit;
+    public float crossroad; //사거리
+    public RaycastHit2D hit; //레이캐스트 판정
     public float attacktime;
     public float attacktimeMax;
-    public GameObject Bullet;
     public Image barSprite;
-    public Image barSpriteNULL;
     public float barY;
     public bool isMove;
-    public bool isAttack;
     Animator animator;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
-        stat = new StatInfo { speed = 0.7f, MaxHp = 12, Score = 500, type = StatInfo.Type.ENEMY, defence = 1 };
+        stat = new StatInfo { Damage = 3, speed = 1, MaxHp = 10, type = StatInfo.Type.FRIENDLY, defence = 0 ,Score = 25};
     }
     void Update()
     {
@@ -45,14 +42,11 @@ public class EnemyFaraway : Entity
         if (isMove) Move();
         barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
         barSprite.fillAmount = _hp / stat.MaxHp;
-        barSpriteNULL.transform.position = this.transform.position + new Vector3(0, barY, 0);
     }
-
-    
 
     public override void Move()
     {
-        transform.Translate(Vector3.left * stat.speed * Time.deltaTime);
+        base.Move();
     }
     protected override void Attack(Entity entity)
     {
@@ -61,18 +55,14 @@ public class EnemyFaraway : Entity
         {
             animator.SetTrigger("isAttack");
             attacktime = 0;
-            Debug.Log("발사");
-            EnemyBullet bullet = Instantiate(Bullet, transform.position + new Vector3(0, -0.3f, 0), Quaternion.identity).GetComponent<EnemyBullet>();
-            bullet.target = entity.gameObject;
-            bullet.IsEnemy = true;
-            bullet.Damage = 5;
-            bullet.Speed = 5;
+            Debug.Log("1");
+            base.Attack(entity);
         }
     }
 
     protected override void Dead()
     {
-        GameManager.Score = GameManager.Score + stat.Score;
         Destroy(this.gameObject);
+        Debug.Log("얘 사망");
     }
 }

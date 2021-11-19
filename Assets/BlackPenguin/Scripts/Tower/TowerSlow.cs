@@ -14,6 +14,7 @@ public class TowerSlow : Tower
         Debug.Log($"{gameObject.name}공격");
         foreach (GameObject gameObject in gameObjects)
         {
+            Debug.Log($"{gameObject.name} 슬로우");
             Entity target = gameObject.GetComponent<Entity>();
             target.StartCoroutine(target.BuffSlow());
         }
