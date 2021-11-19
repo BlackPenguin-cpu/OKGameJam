@@ -1,14 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
 {
+    Rigidbody rb;
     public float mousepower = 1;
     public int gold = 0;
     public int onClickGold = 1;
+    static public float Score = 0;
     Entity entity;
 
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     public void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

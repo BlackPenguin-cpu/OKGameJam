@@ -66,6 +66,7 @@ public class EnemyCloser : Entity
     {
         Destroy(this.gameObject);
         Debug.Log("¾ê »ç¸Á");
+        GameManager.Score = GameManager.Score + stat.Score;
     }
     
     //protected override void Action()
