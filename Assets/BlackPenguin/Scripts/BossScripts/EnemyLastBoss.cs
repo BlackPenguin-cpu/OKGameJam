@@ -56,7 +56,7 @@ public class EnemyLastBoss : Entity
             stat.speed = 0;
             AnimationCheak++;
         }
-        if(AnimationCheak == 1)
+        if (AnimationCheak == 1)
         {
             animator.SetTrigger("isSkill");
         }
@@ -103,6 +103,16 @@ public class EnemyLastBoss : Entity
         skilltime = 0;
         Debug.Log("즉사 스킬 사용");
         Entity[] entity = FindObjectsOfType<Entity>();
+        while (true)
+        {
+            Entity a = entity[Random.Range(0, entity.Length)];
+            if (a.stat.type == StatInfo.Type.FRIENDLY && a.gameObject.tag.Contains("Castle"))
+            {
+                Destroy(a.gameObject);
+                _hp = +10;
+                break;
+            }
+        }
         stat.speed = 0.3f;
     }
 }
