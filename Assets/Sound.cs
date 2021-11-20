@@ -13,7 +13,7 @@ public class Sound : Singleton<Sound>
     public AudioSource audioSource;
     public AudioSource audioSE;
     public List<Clip> clips = new List<Clip>();
-    public Sound() { }
+    protected Sound() { }
 
     public void ChangeClip(string name, bool loop)
     //사용법 Sound.Instance.ChangeClip("이름",루프 할껀지안할껀지(bool))
