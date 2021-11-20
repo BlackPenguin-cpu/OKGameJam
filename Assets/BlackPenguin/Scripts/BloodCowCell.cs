@@ -26,8 +26,8 @@ public class BloodCowCell : Entity
     }
     void Update()
     {
-        Debug.DrawRay(transform.position, Vector3.left * crossroad, Color.red);
-        var rayHit = Physics2D.RaycastAll(transform.position, Vector3.left, crossroad);
+        Debug.DrawRay(transform.position, Vector3.right * crossroad, Color.red);
+        var rayHit = Physics2D.RaycastAll(transform.position, Vector3.right, crossroad);
         foreach (var hit in rayHit)
         {
             if (hit.collider.gameObject != this.gameObject && hit.collider.gameObject.GetComponent<Entity>() != null)

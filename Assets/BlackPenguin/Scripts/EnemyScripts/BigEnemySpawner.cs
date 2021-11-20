@@ -123,10 +123,8 @@ public class BigEnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < 10; i++)
         {
-            enemy[0];
             yield return new WaitForSeconds(1);
         }
-        enemy[0];
 
         yield return 0;
     }

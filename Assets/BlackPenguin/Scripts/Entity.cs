@@ -92,7 +92,7 @@ public abstract class Entity : MonoBehaviour
     {
         if (stat.type == StatInfo.Type.ENEMY)
             transform.Translate(Vector3.left * stat.speed * Time.deltaTime);
-        else if (stat.type == StatInfo.Type.FRIENDLY)
+        if (stat.type == StatInfo.Type.FRIENDLY)
             transform.Translate(Vector3.right * stat.speed * Time.deltaTime);
     }
 
