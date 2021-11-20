@@ -237,16 +237,16 @@ public class BigEnemySpawner : MonoBehaviour
     IEnumerator Wave9()
     {
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 10; i++)
         {
-            yield return new WaitForSeconds(2);
-            Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
-            yield return new WaitForSeconds(2);
-            Instantiate(enemy[3], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
-            yield return new WaitForSeconds(3);
-            Instantiate(enemy[3], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
-            Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
-            Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(5);
+            GameObject a = Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            Entity entity = a.GetComponent<Entity>();
+            entity._hp = -14;
+            entity.stat.speed = 5;
+            entity.stat.Damage = 10;
+            SpriteRenderer sprite = a.GetComponent<SpriteRenderer>();
+            sprite.color = new Color(1, 0, 0);
         }
         yield return 0;
     }
