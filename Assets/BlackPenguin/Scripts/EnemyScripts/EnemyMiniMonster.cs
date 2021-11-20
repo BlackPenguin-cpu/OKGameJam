@@ -18,7 +18,7 @@ public class EnemyMiniMonster : Entity
     private void Start()
     {
         animator = GetComponent<Animator>();
-        stat = new StatInfo { Damage = 6, speed = 1.2f, MaxHp = 7, Score = 50, type = StatInfo.Type.ENEMY, defence = 1 };
+        //stat = new StatInfo { Damage = 6, speed = 1.2f, MaxHp = 7, Score = 50, type = StatInfo.Type.ENEMY, defence = 1 };
     }
     void Update()
     {

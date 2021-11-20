@@ -503,7 +503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6252250173898664768, guid: 77701a973376b3548bc60b76c4b7ee3f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.81
+      value: 5.39
       objectReference: {fileID: 0}
     - target: {fileID: 6252250173898664768, guid: 77701a973376b3548bc60b76c4b7ee3f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -753,7 +753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1056051465021440163, guid: a209a5efaee6f5a4abfde44cfcb198b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.39
+      value: 5.66
       objectReference: {fileID: 0}
     - target: {fileID: 1056051465021440163, guid: a209a5efaee6f5a4abfde44cfcb198b9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -966,7 +966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772673dc1c0736648a4558b648d96889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mousepower: 1
+  mousepower: 1.5
   gold: 0
   onClickGold: 1
 --- !u!4 &807966524
@@ -1299,7 +1299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9150754081024940353, guid: c9725a72ec269b145a19c9e6554e3a06, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.7008
+      value: 5.66
       objectReference: {fileID: 0}
     - target: {fileID: 9150754081024940353, guid: c9725a72ec269b145a19c9e6554e3a06, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2030,8 +2030,9 @@ MonoBehaviour:
   - {fileID: 2710422756292369803, guid: f7d6f216cfbc0354bb0fcaa5fc9a550f, type: 3}
   - {fileID: 29366711465850344, guid: e7fa2800c5912be49bf5fc93a9a670a5, type: 3}
   - {fileID: 3078793942921805811, guid: 388d8c4e394cdcb47ba222749cf3cc4d, type: 3}
+  - {fileID: 8395639125162447256, guid: ff30d73c76d3f8e4a8c07023dff6427d, type: 3}
   WaveTime: 65
-  nowWave: 12
+  nowWave: 18
 --- !u!212 &1620591352
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2461,6 +2462,7 @@ MonoBehaviour:
     MaxHp: 100
     Defence: 0
     Score: 0
+    Speed: 0
     isDie: 0
     buffWeak: 0
     slow: 0
@@ -2619,7 +2621,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6918121330804213592, guid: b71088293130bd84ba0cec100e4bba96, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.56
+      value: 4.74
       objectReference: {fileID: 0}
     - target: {fileID: 6918121330804213592, guid: b71088293130bd84ba0cec100e4bba96, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2656,6 +2658,10 @@ PrefabInstance:
     - target: {fileID: 6918121330804213592, guid: b71088293130bd84ba0cec100e4bba96, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8624965254796477621, guid: b71088293130bd84ba0cec100e4bba96, type: 3}
+      propertyPath: stat.Speed
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b71088293130bd84ba0cec100e4bba96, type: 3}
@@ -2724,3 +2730,69 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7d6f216cfbc0354bb0fcaa5fc9a550f, type: 3}
+--- !u!1001 &5829082139793355709
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8395639125162447251, guid: ff30d73c76d3f8e4a8c07023dff6427d, type: 3}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8395639125162447251, guid: ff30d73c76d3f8e4a8c07023dff6427d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 8395639125162447251, guid: ff30d73c76d3f8e4a8c07023dff6427d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8395639125162447251, guid: ff30d73c76d3f8e4a8c07023dff6427d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8395639125162447251, guid: ff30d73c76d3f8e4a8c07023dff6427d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8395639125162447251, guid: ff30d73c76d3f8e4a8c07023dff6427d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8395639125162447251, guid: ff30d73c76d3f8e4a8c07023dff6427d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8395639125162447251, guid: ff30d73c76d3f8e4a8c07023dff6427d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8395639125162447251, guid: ff30d73c76d3f8e4a8c07023dff6427d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8395639125162447251, guid: ff30d73c76d3f8e4a8c07023dff6427d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8395639125162447251, guid: ff30d73c76d3f8e4a8c07023dff6427d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8395639125162447256, guid: ff30d73c76d3f8e4a8c07023dff6427d, type: 3}
+      propertyPath: m_Name
+      value: EnemyMiniMonster(alpha)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8395639125162447256, guid: ff30d73c76d3f8e4a8c07023dff6427d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148359778718866617, guid: ff30d73c76d3f8e4a8c07023dff6427d, type: 3}
+      propertyPath: crossroad
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: ff30d73c76d3f8e4a8c07023dff6427d, type: 3}

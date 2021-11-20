@@ -3,22 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyCloser : Entity
+public class EnemyMiniMonsteralpha : Entity
 {
-    public float crossroad; //사거리
-    public RaycastHit2D hit; //레이캐스트 판정
+    public float crossroad;
+    public RaycastHit2D hit;
     public float attacktime;
     public float attacktimeMax;
     public Image barSprite;
     public Image barSpriteNULL;
     public float barY;
     public bool isMove;
+    public GameObject DieSpawn;
     Animator animator;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
-        //stat = new StatInfo { Damage = 5, speed = 1.3f, MaxHp = 10, Score = 100, type = StatInfo.Type.ENEMY, defence = 1 };
+        stat = new StatInfo { Damage = 10, speed = 1.6f, MaxHp = 70, Score = 50, type = StatInfo.Type.ENEMY, defence = 1 };
     }
     void Update()
     {
@@ -32,7 +33,7 @@ public class EnemyCloser : Entity
                 if (entity.stat.type != this.stat.type)
                 {
                     isMove = false;
-                    Attack(entity);                   
+                    Attack(entity);
                 }
             }
             else
@@ -52,18 +53,21 @@ public class EnemyCloser : Entity
     }
     protected override void Attack(Entity entity)
     {
-        attacktime += 1 *  Time.deltaTime;
+        attacktime += 1 * Time.deltaTime;
         if (attacktime >= attacktimeMax)
         {
             animator.SetTrigger("isAttack");
             attacktime = 0;
-            Debug.Log("1");
             base.Attack(entity);
         }
     }
-    
+
     protected override void Dead()
     {
+        Instantiate(DieSpawn, transform.position + new Vector3(1, 0, 0), Quaternion.identity);
+        Instantiate(DieSpawn, transform.position + new Vector3(2, 0, 0), Quaternion.identity);
+        Instantiate(DieSpawn, transform.position + new Vector3(3, 0, 0), Quaternion.identity);
+        Instantiate(DieSpawn, transform.position + new Vector3(4, 0, 0), Quaternion.identity);
         GameManager.Score = GameManager.Score + stat.Score;
         Destroy(this.gameObject);
     }

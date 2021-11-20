@@ -120,11 +120,12 @@ MonoBehaviour:
     MaxHp: 5
     Defence: 0.5
     Score: 200
+    Speed: 4.5
     isDie: 0
+    buffWeak: 0
+    slow: 0
     isTower: 0
     type: 0
-  buffWeak: 0
-  slow: 0
   hp: 5
   crossroad: 0.8
   crossroad2: 9
