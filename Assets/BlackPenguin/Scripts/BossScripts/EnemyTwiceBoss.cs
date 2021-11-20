@@ -85,7 +85,7 @@ public class EnemyTwiceBoss : Entity
     protected override void Dead()
     {
         BigEnemySpawner.nowBoss = false;
-        //BigEnemySpawner.WaveTime = 40;
+        BigEnemySpawner.WaveTime = 40;
         Instantiate(BossDead, transform.position, Quaternion.identity);
         GameManager.Score = GameManager.Score + stat.Score;
         Destroy(this.gameObject);

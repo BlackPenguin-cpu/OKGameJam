@@ -77,7 +77,7 @@ public class EnemyOnceBoss : Entity
     protected override void Dead()
     {
         BigEnemySpawner.nowBoss = false;
-        //BigEnemySpawner.WaveTime = 40;
+        BigEnemySpawner.WaveTime = 40;
         Instantiate(BossDead, transform.position + new Vector3(0, -2, 0), Quaternion.identity);
         GameManager.Score = GameManager.Score + stat.Score;
         Destroy(this.gameObject);

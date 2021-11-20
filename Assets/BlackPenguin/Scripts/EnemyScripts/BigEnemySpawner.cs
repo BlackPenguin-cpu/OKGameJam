@@ -5,7 +5,7 @@ using UnityEngine;
 public class BigEnemySpawner : MonoBehaviour
 {
     public GameObject[] enemy;
-    public float WaveTime = 65;
+    static public float WaveTime = 65;
     [SerializeField] int nowWave = 0;
     static public bool nowBoss = false;
  
