@@ -21,7 +21,7 @@ public class EnemySelfDestruct : Entity
     private void Start()
     {
         animator = GetComponent<Animator>();
-        stat = new StatInfo { Damage = 13, speed = 4.5f, MaxHp = 5, Score = 200, type = StatInfo.Type.ENEMY, defence = 0.5f };
+        //stat = new StatInfo { Damage = 13, speed = 4.5f, MaxHp = 5, Score = 200, type = StatInfo.Type.ENEMY, defence = 0.5f };
     }
     void Update()
     {
