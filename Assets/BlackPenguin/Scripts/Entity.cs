@@ -88,6 +88,14 @@ public abstract class Entity : MonoBehaviour
     {
         hp = _hp;
     }
+
+    protected virtual void Update()
+    {
+        if (_hp <= 0)
+        {
+            Dead();
+        }
+    }
     public virtual void Move() // 기본적으로 유닛만 이 함수를 사용함
     {
         if (stat.type == StatInfo.Type.ENEMY)
@@ -98,6 +106,7 @@ public abstract class Entity : MonoBehaviour
 
     protected virtual void Attack(Entity entity)
     {
+        Debug.Log($"{entity.gameObject.name}이 {stat.Damage}만큼 뎀지 받음");
         if (stat.Damage - entity.stat.defence > 0)
         {
             if (stat.buffWeak > 0)
