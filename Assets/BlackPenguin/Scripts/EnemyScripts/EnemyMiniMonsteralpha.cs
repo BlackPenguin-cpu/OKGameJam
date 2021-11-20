@@ -14,6 +14,7 @@ public class EnemyMiniMonsteralpha : Entity
     public float barY;
     public bool isMove;
     public GameObject DieSpawn;
+    public GameObject DieEffect;
     Animator animator;
 
     private void Start()
@@ -21,6 +22,7 @@ public class EnemyMiniMonsteralpha : Entity
         animator = GetComponent<Animator>();
         stat = new StatInfo { Damage = 10, speed = 1.6f, MaxHp = 70, Score = 50, type = StatInfo.Type.ENEMY, defence = 1 };
     }
+
     void Update()
     {
         Debug.DrawRay(transform.position, Vector3.left * crossroad, Color.red);
@@ -64,6 +66,7 @@ public class EnemyMiniMonsteralpha : Entity
 
     protected override void Dead()
     {
+        Instantiate(DieEffect, transform.position, Quaternion.identity);
         Instantiate(DieSpawn, transform.position + new Vector3(1, 0, 0), Quaternion.identity);
         Instantiate(DieSpawn, transform.position + new Vector3(2, 0, 0), Quaternion.identity);
         Instantiate(DieSpawn, transform.position + new Vector3(3, 0, 0), Quaternion.identity);

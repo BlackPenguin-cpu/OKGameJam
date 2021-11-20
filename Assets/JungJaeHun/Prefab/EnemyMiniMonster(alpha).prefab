@@ -386,6 +386,7 @@ MonoBehaviour:
   barY: 1.4
   isMove: 0
   DieSpawn: {fileID: 6918121330804213587, guid: b71088293130bd84ba0cec100e4bba96, type: 3}
+  DieEffect: {fileID: 6770081996149430049, guid: cbb63879481d7424db7705b5b605fa43, type: 3}
 --- !u!50 &8395639125162447263
 Rigidbody2D:
   serializedVersion: 4
