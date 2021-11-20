@@ -14,17 +14,18 @@ public class WhiteCell : Entity
     public bool isMove;
     Animator animator;
 
-    private void Start()
+    protected override void Start()
     {
         animator = GetComponent<Animator>();
         stat = new StatInfo { Damage = 15, speed = 2, MaxHp = 5, type = StatInfo.Type.FRIENDLY, defence = 1, Score = 50 };
+        base.Start();
         attacktimeMax = 8;
         crossroad = 1.5f;
     }
     void Update()
     {
-        Debug.DrawRay(transform.position, Vector3.left * crossroad, Color.red);
-        var rayHit = Physics2D.RaycastAll(transform.position, Vector3.left, crossroad);
+        Debug.DrawRay(transform.position, Vector3.right * crossroad, Color.red);
+        var rayHit = Physics2D.RaycastAll(transform.position, Vector3.right, crossroad);
         foreach (var hit in rayHit)
         {
             if (hit.collider.gameObject != this.gameObject && hit.collider.gameObject.GetComponent<Entity>() != null)
@@ -32,6 +33,7 @@ public class WhiteCell : Entity
                 Entity entity = hit.collider.gameObject.GetComponent<Entity>();
                 if (entity.stat.type != this.stat.type)
                 {
+                    Debug.Log("³ª ¶§¸±²¨´Ù");
                     isMove = false;
                     Attack(entity);
                 }

@@ -122,12 +122,12 @@ MonoBehaviour:
     Defence: 5
     Score: 1100
     isDie: 0
+    buffWeak: 0
+    slow: 0
     isTower: 0
     type: 0
-  buffWeak: 0
-  slow: 0
   hp: 17
-  crossroad: 1.2
+  crossroad: 1.7
   attacktime: 3.2
   attacktimeMax: 3.2
   skilltime: 8
