@@ -27,6 +27,7 @@ public class GameManager : Singleton<GameManager>
             if (hit.collider.tag.Contains("Entity"))
             {
                 var enemy = hit.collider.gameObject.GetComponent<Entity>();
+                if(enemy.stat.type == StatInfo.Type.ENEMY)
                 enemy._hp = -mousepower;
             }
             if (hit.collider.tag.Contains("Castle"))
