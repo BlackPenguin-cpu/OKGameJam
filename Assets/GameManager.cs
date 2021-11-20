@@ -8,6 +8,7 @@ public class GameManager : Singleton<GameManager>
     Rigidbody rb;
     public float mousepower = 1;
     public int gold = 0;
+    static public int Gold = 0;
     public int onClickGold = 1;
     static public float Score = 0;
     Entity entity;

@@ -7,6 +7,7 @@ public class BigEnemySpawner : MonoBehaviour
     public GameObject[] enemy;
     static public float WaveTime = 65;
     [SerializeField] int nowWave = 0;
+    static public int Wave = 1;
     static public bool nowBoss = false;
  
 
@@ -119,6 +120,7 @@ public class BigEnemySpawner : MonoBehaviour
             }
             WaveTime = 0;
             nowWave++;
+            Wave++;
         }
     }
     IEnumerator Wave1()

@@ -11,6 +11,7 @@ public class Baek : Interaction
         {
             ShopBaek = true;
             GameManager.Instance.gold -= 100;
+            GameManager.Gold -= 100;
         }
         else if (GameManager.Instance.gold < 100)
         {

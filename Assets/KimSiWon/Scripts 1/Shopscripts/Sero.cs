@@ -12,6 +12,7 @@ public class Sero : Interaction
         {
             ShopSero = true;
             GameManager.Instance.gold -= 1000;
+            GameManager.Gold -= 1000;
         }
         else if(GameManager.Instance.gold > 1000)
         {

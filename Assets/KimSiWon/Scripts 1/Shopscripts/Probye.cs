@@ -12,6 +12,7 @@ public class Probye : Interaction
         {
             ShopProbye = true;
             GameManager.Instance.gold -= 150;
+            GameManager.Gold -= 150;
         }
         else if (GameManager.Instance.gold < 150)
         {

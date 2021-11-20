@@ -11,7 +11,7 @@ public class Sepo : Interaction
         {
             ShopSepo = true;
             GameManager.Instance.gold -= 150;
-
+            GameManager.Gold -= 150;
         }
         else if(GameManager.Instance.gold < 150)
         {

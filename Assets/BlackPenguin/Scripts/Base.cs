@@ -7,5 +7,6 @@ public class Base : MonoBehaviour
     void Onclick()
     {
         GameManager.Instance.gold += GameManager.Instance.gold;
+        
     }
 }
