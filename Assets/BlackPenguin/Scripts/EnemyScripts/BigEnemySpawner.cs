@@ -7,7 +7,7 @@ public class BigEnemySpawner : MonoBehaviour
     public GameObject[] enemy;
     public float WaveTime = 65;
     [SerializeField] int nowWave = 0;
-    public bool nowBoss = false;
+    static public bool nowBoss = false;
  
 
     // Start is called before the first frame update
@@ -236,38 +236,134 @@ public class BigEnemySpawner : MonoBehaviour
     }
     IEnumerator Wave9()
     {
-
-        for (int i = 0; i < 4; i++)
+        Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+        Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+        Instantiate(enemy[3], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+        for (int i = 0; i < 20; i++)
         {
-            yield return new WaitForSeconds(2);
-            Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
-            yield return new WaitForSeconds(2);
-            Instantiate(enemy[3], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
-            yield return new WaitForSeconds(3);
-            Instantiate(enemy[3], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
-            Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
-            Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(0.3f);
+            GameObject a = Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            Entity entity = a.GetComponent<Entity>();
+            entity.stat.MaxHp = 1;
+            entity._hp = -13;
+            entity.stat.speed = 7;
+            entity.stat.Damage = 10;
+            SpriteRenderer sprite = a.GetComponent<SpriteRenderer>();
+            sprite.color = new Color(0.1f, 0.1f, 0.1f);
+        }
+        yield return new WaitForSeconds(4);
+        Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+        Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+        Instantiate(enemy[3], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+        for (int i = 0; i < 20; i++)
+        {
+            yield return new WaitForSeconds(0.3f);
+            GameObject a = Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            Entity entity = a.GetComponent<Entity>();
+            entity.stat.MaxHp = 1;
+            entity._hp = -13;
+            entity.stat.speed = 7;
+            entity.stat.Damage = 10;
+            SpriteRenderer sprite = a.GetComponent<SpriteRenderer>();
+            sprite.color = new Color(0.1f, 0.1f, 0.1f);
+        }
+        yield return new WaitForSeconds(4);
+        Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+        Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+        Instantiate(enemy[3], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+        for (int i = 0; i < 20; i++)
+        {
+            yield return new WaitForSeconds(0.3f);
+            GameObject a = Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            Entity entity = a.GetComponent<Entity>();
+            entity.stat.MaxHp = 1;
+            entity._hp = -13;
+            entity.stat.speed = 7;
+            entity.stat.Damage = 10;
+            SpriteRenderer sprite = a.GetComponent<SpriteRenderer>();
+            sprite.color = new Color(0.1f, 0.1f, 0.1f);
         }
         yield return 0;
     }
     IEnumerator Wave10()
     {
-
+        nowBoss = true;
+        Instantiate(enemy[10], transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
+        for (int i = 0; i < 3; i++)
+        {
+            Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(4);
+            Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(4);
+            Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(4);
+            Instantiate(enemy[3], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(4);
+        }
         yield return 0;
     }
     IEnumerator Wave11()
     {
-
+        for (int i = 0; i < 2; i++)
+        {
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(0.7f);
+        }
+        for (int i = 0; i < 2; i++)
+        {
+            Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.2f);
+        }
+        for (int i = 0; i < 2; i++)
+        {
+            Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.2f);
+        }
+        for (int i = 0; i < 2; i++)
+        {
+            Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.2f);
+        }
+        for (int i = 0; i < 2; i++)
+        {
+            Instantiate(enemy[3], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.2f);
+        }
+        yield return new WaitForSeconds(12);
+        for (int i = 0; i < 2; i++)
+        {
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(0.7f);
+        }
+        Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+        Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+        Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+        Instantiate(enemy[3], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+        Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
         yield return 0;
     }
     IEnumerator Wave12()
     {
-
+        for (int i = 0; i < 3; i++)
+        {
+            yield return new WaitForSeconds(4f);
+            GameObject b = Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            Entity entity = b.GetComponent<Entity>();
+            entity.stat.MaxHp = 70;
+            entity._hp = +70;
+            entity.stat.speed = 10;
+            entity.stat.Damage = 100;
+            SpriteRenderer sprite = b.GetComponent<SpriteRenderer>();
+            sprite.color = new Color(2, 0, 0);
+            Transform big = b.GetComponent<Transform>();
+            big.localScale = new Vector3(2, 2, 2);
+        }
+        Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
         yield return 0;
     }
     IEnumerator Wave13()
     {
-
+        Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
         yield return 0;
     }
     IEnumerator Wave14()

@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 215677706342074086, guid: f544aadc792c7b2488a9506797dd69e8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.1
+      value: 9.29
       objectReference: {fileID: 0}
     - target: {fileID: 215677706342074086, guid: f544aadc792c7b2488a9506797dd69e8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2030,9 +2030,8 @@ MonoBehaviour:
   - {fileID: 2710422756292369803, guid: f7d6f216cfbc0354bb0fcaa5fc9a550f, type: 3}
   - {fileID: 29366711465850344, guid: e7fa2800c5912be49bf5fc93a9a670a5, type: 3}
   - {fileID: 3078793942921805811, guid: 388d8c4e394cdcb47ba222749cf3cc4d, type: 3}
-  WaveTime: 0
-  nowWave: 9
-  nowBoss: 0
+  WaveTime: 65
+  nowWave: 12
 --- !u!212 &1620591352
 SpriteRenderer:
   m_ObjectHideFlags: 0
