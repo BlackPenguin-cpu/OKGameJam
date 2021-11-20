@@ -18,7 +18,7 @@ public class EnemyCloser : Entity
     private void Start()
     {
         animator = GetComponent<Animator>();
-        stat = new StatInfo { Damage = 5, speed = 1, MaxHp = 10, Score = 100, type = StatInfo.Type.ENEMY, defence = 1 };
+        stat = new StatInfo { Damage = 5, speed = 1.3f, MaxHp = 10, Score = 100, type = StatInfo.Type.ENEMY, defence = 1 };
     }
     void Update()
     {

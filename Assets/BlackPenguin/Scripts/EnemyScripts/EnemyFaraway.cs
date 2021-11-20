@@ -20,7 +20,7 @@ public class EnemyFaraway : Entity
     private void Start()
     {
         animator = GetComponent<Animator>();
-        stat = new StatInfo { speed = 0.7f, MaxHp = 12, Score = 500, type = StatInfo.Type.ENEMY, defence = 1 };
+        stat = new StatInfo { speed = 0.9f, MaxHp = 12, Score = 500, type = StatInfo.Type.ENEMY, defence = 1 };
     }
     void Update()
     {

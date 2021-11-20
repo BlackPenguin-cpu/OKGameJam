@@ -293,15 +293,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stat:
     Damage: 9
-    MaxHp: 17
+    MaxHp: 14
     Defence: 3
     Score: 400
     isDie: 0
+    buffWeak: 0
+    slow: 0
     isTower: 0
     type: 0
-  buffWeak: 0
-  slow: 0
-  hp: 17
+  hp: 14
   crossroad: 1.3
   attacktime: 1.5
   attacktimeMax: 1.5
