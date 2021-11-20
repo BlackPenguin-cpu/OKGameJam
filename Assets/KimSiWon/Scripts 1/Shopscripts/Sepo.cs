@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SeItem : Interaction
+public class Sepo : Interaction
 {
-    public int Money = 0;
-
+    public bool ShopSepo = false;
     protected override void Action()
     {
-       
+        if(GameManager.Instance.gold >= 150)
+        {
+            ShopSepo = true;
+        }
     }
 
     void Start()
@@ -16,12 +18,9 @@ public class SeItem : Interaction
         
     }
 
-  
+   
     void Update()
     {
         
-       
     }
-    
 }
-
