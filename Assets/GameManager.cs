@@ -29,6 +29,11 @@ public class GameManager : Singleton<GameManager>
                 var enemy = hit.collider.gameObject.GetComponent<Entity>();
                 enemy._hp = -mousepower;
             }
+            if (hit.collider.tag.Contains("Castle"))
+            {
+                hit.collider.gameObject.GetComponent<Castle>().OnClick();
+            }
         }
     }
+
 }
