@@ -24,7 +24,7 @@ public struct StatInfo
             Defence = value;
         }
     }
-    private float Speed;
+    [SerializeField] private float Speed;
     public float speed
     {
         get
@@ -106,6 +106,10 @@ public abstract class Entity : MonoBehaviour
             }
             else
                 entity.GetComponent<Entity>()._hp = -(stat.Damage - entity.stat.defence);
+        }
+        else
+        {
+            entity.GetComponent<Entity>().hp = -1;
         }
     }
     public IEnumerator BuffWeak()
