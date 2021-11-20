@@ -125,7 +125,7 @@ public class BigEnemySpawner : MonoBehaviour
     }
     IEnumerator Wave1()
     {
-        Sound.Instance.ChangeClip("충디 일반 웨이브 브금", true);
+        Sound.Instance.ChangeClip("Stage", true);
         for (int i = 0; i < 7; i++)
         {
 
@@ -292,6 +292,7 @@ public class BigEnemySpawner : MonoBehaviour
     }
     IEnumerator Wave10()
     {
+        Sound.Instance.ChangeClip("1BossStage", true);
         nowBoss = true;
         Instantiate(enemy[10], transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
         for (int i = 0; i < 3; i++)
@@ -596,6 +597,7 @@ public class BigEnemySpawner : MonoBehaviour
     }
     IEnumerator Wave20()
     {
+        Sound.Instance.ChangeClip("2BossStage", true);
         nowBoss = true;
         Instantiate(enemy[11], transform.position + new Vector3(0, 1.4f, 0), Quaternion.identity);
         for (int i = 0; i < 4; i++)
@@ -859,6 +861,7 @@ public class BigEnemySpawner : MonoBehaviour
     }
     IEnumerator Wave30()
     {
+        Sound.Instance.ChangeClip("3BossStage", true);
         nowBoss = true;
         Instantiate(enemy[12], transform.position + new Vector3(0, 1.2f, 0), Quaternion.identity);
         Instantiate(enemy[9], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
