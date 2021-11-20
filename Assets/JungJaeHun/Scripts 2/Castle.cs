@@ -31,6 +31,11 @@ public class Castle : Entity
         barSprite.fillAmount = _hp / stat.MaxHp;
         barSpriteNULL.transform.position = this.transform.position + new Vector3(0, barY, 0);
     }
+    public void OnClick()
+    {
+        GameManager.Instance.gold += GameManager.Instance.onClickGold;
+    }
+    
     public override void Move()
     {
         

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Base : Intreraction
+public class Base : MonoBehaviour
 {
-    protected override void Action()
+    void Onclick()
     {
         GameManager.Instance.gold += GameManager.Instance.gold;
     }
