@@ -5,7 +5,7 @@ using UnityEngine;
 public class BigEnemySpawner : MonoBehaviour
 {
     public GameObject[] enemy;
-    public float WaveTime = 65;
+    static public float WaveTime = 65;
     [SerializeField] int nowWave = 0;
     static public bool nowBoss = false;
  
@@ -346,6 +346,7 @@ public class BigEnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
             yield return new WaitForSeconds(4f);
             GameObject b = Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
             Entity entity = b.GetComponent<Entity>();
@@ -358,97 +359,538 @@ public class BigEnemySpawner : MonoBehaviour
             Transform big = b.GetComponent<Transform>();
             big.localScale = new Vector3(2, 2, 2);
         }
-        Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+        for (int i = 0; i < 2; i++)
+        {
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+            Instantiate(enemy[3], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(3f);
+        }
+        for (int i = 0; i < 2; i++)
+        {
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+            Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(3f);
+        }
+        for (int i = 0; i < 2; i++)
+        {
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+            Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(3f);
+        }
+        for (int i = 0; i < 2; i++)
+        {
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+            Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(3f);
+        }
+        for (int i = 0; i < 1; i++)
+        { 
+            GameObject b = Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            Entity entity = b.GetComponent<Entity>();
+            entity.stat.MaxHp = 70;
+            entity._hp = +70;
+            entity.stat.speed = 10;
+            entity.stat.Damage = 100;
+            SpriteRenderer sprite = b.GetComponent<SpriteRenderer>();
+            sprite.color = new Color(2, 0, 0);
+            Transform big = b.GetComponent<Transform>();
+            big.localScale = new Vector3(2, 2, 2);
+        }
         yield return 0;
     }
     IEnumerator Wave13()
     {
-        Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+        for (int i = 0; i < 4; i++)
+        {
+            Instantiate(enemy[5], transform.position + new Vector3(0, Random.Range(-0.4f, 0.4f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+            Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+            Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+            Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+            Instantiate(enemy[3], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+        }
         yield return 0;
     }
     IEnumerator Wave14()
     {
-
+        for (int i = 0; i < 5; i++)
+        {
+            Instantiate(enemy[5], transform.position + new Vector3(0, Random.Range(-0.4f, 0.4f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+        }
+        for (int i = 0; i < 1; i++)
+        {
+            GameObject c = Instantiate(enemy[5], transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+            Entity entity = c.GetComponent<Entity>();
+            entity.stat.MaxHp = 130;
+            entity._hp = +130;
+            entity.stat.speed = 0.75f;
+            entity.stat.Damage = 20;
+            SpriteRenderer sprite = c.GetComponent<SpriteRenderer>();
+            sprite.color = new Color(0, 0, 1, 1);
+            Transform big = c.GetComponent<Transform>();
+            big.localScale = new Vector3(2.5f, 2.5f, 2.5f);
+        }
+        for (int i = 0; i < 5; i++)
+        {
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+        }
+        for (int i = 0; i < 2; i++)
+        {
+            Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+        }
+        for (int i = 0; i < 7; i++)
+        {
+            Instantiate(enemy[3], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(0.3f);
+            Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+        }
         yield return 0;
     }
     IEnumerator Wave15()
     {
-
+        nowBoss = true;
+        Instantiate(enemy[10], transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
+        Instantiate(enemy[5], transform.position + new Vector3(0, Random.Range(-0.4f, 0.4f), 0), Quaternion.identity);
+        for (int i = 0; i < 2; i++)
+        {
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(4);
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(4);
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(4);
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            Instantiate(enemy[3], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(4);
+            Instantiate(enemy[5], transform.position + new Vector3(0, Random.Range(-0.4f, 0.4f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+        }
         yield return 0;
     }
     IEnumerator Wave16()
     {
-
+        for (int i = 0; i < 3; i++)
+        {
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1);
+            Instantiate(enemy[6], transform.position + new Vector3(0, Random.Range(-0.4f, 0.4f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1);
+        }
+        for (int i = 0; i < 4; i++)
+        {
+            Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1);
+            Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1);
+            Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1);
+            Instantiate(enemy[3], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1);
+            Instantiate(enemy[5], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1);
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1);
+            Instantiate(enemy[6], transform.position + new Vector3(0, Random.Range(-0.4f, 0.4f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1);
+        }
         yield return 0;
     }
     IEnumerator Wave17()
     {
-
+        for (int i = 0; i < 10; i++)
+        {
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(enemy[6], transform.position + new Vector3(0, Random.Range(-0.4f, 0.4f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(0.5f);
+        }
+        Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+        Instantiate(enemy[6], transform.position + new Vector3(0, Random.Range(-0.4f, 0.4f), 0), Quaternion.identity);
+        yield return new WaitForSeconds(0.5f);
+        Instantiate(enemy[5], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+        for (int i = 0; i < 7; i++)
+        {
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(2.5f);
+            Instantiate(enemy[6], transform.position + new Vector3(0, Random.Range(-0.4f, 0.4f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(2.5f);
+        }
         yield return 0;
     }
     IEnumerator Wave18()
     {
-
+        for (int i = 0; i < 6; i++)
+        {
+            Instantiate(enemy[13], transform.position + new Vector3(0, 0, 0), Quaternion.identity);
+            yield return new WaitForSeconds(6f);
+        }
         yield return 0;
     }
     IEnumerator Wave19()
     {
-
+        Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+        Instantiate(enemy[5], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+        for (int i = 0; i < 30; i++)
+        {
+            yield return new WaitForSeconds(0.1f);
+            GameObject e = Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            Entity entity = e.GetComponent<Entity>();
+            Transform big = e.GetComponent<Transform>();
+            big.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            entity.stat.MaxHp = 2;
+            entity._hp = -8;
+            entity.stat.speed = 0.65f;
+            entity.stat.Damage = 100;
+            SpriteRenderer sprite = e.GetComponent<SpriteRenderer>();
+            sprite.color = new Color(0, 1, 1, 1);
+        }
+        yield return new WaitForSeconds(4f);
+        Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+        Instantiate(enemy[5], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+        for (int i = 0; i < 30; i++)
+        {
+            yield return new WaitForSeconds(0.1f);
+            GameObject e = Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            Entity entity = e.GetComponent<Entity>();
+            Transform big = e.GetComponent<Transform>();
+            big.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            entity.stat.MaxHp = 2;
+            entity._hp = -8;
+            entity.stat.speed = 0.65f;
+            entity.stat.Damage = 100;
+            SpriteRenderer sprite = e.GetComponent<SpriteRenderer>();
+            sprite.color = new Color(0, 1, 1, 1);
+        }
         yield return 0;
     }
     IEnumerator Wave20()
     {
-
+        nowBoss = true;
+        Instantiate(enemy[11], transform.position + new Vector3(0, 1.4f, 0), Quaternion.identity);
+        for (int i = 0; i < 4; i++)
+        {
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(0.4f);
+        }
+        for (int i = 0; i < 6; i++)
+        {
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+            Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(2f);
+            Instantiate(enemy[5], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(3f);
+        }
+        yield return new WaitForSeconds(10f);
+        for (int i = 0; i < 4; i++)
+        {
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+            Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(2f);
+            Instantiate(enemy[5], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(3f);
+        }
         yield return 0;
     }
     IEnumerator Wave21()
     {
-
+        Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        yield return new WaitForSeconds(0.4f);
+        Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        yield return new WaitForSeconds(0.4f);
+        Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+        for (int i = 0; i < 5; i++)
+        {
+            Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            Instantiate(enemy[3], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+        }
+        yield return new WaitForSeconds(0.4f);
+        Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        yield return new WaitForSeconds(4f);
+        for (int i = 0; i < 5; i++)
+        {
+            Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            Instantiate(enemy[3], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+        }
         yield return 0;
     }
     IEnumerator Wave22()
     {
-
-        yield return 0;
+        Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        yield return new WaitForSeconds(0.4f);
+        Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        yield return new WaitForSeconds(0.4f);
+        Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        yield return new WaitForSeconds(0.4f);
+        Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        yield return new WaitForSeconds(0.4f);
+        Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        yield return new WaitForSeconds(0.4f);
+        for (int i = 0; i < 7; i++)
+        {
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(2f);
+        }
+            yield return 0;
     }
     IEnumerator Wave23()
     {
-
+        Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        for (int i = 0; i < 18; i++)
+        {
+            GameObject f = Instantiate(enemy[2], transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+            Entity entity = f.GetComponent<Entity>();
+            Transform big = f.GetComponent<Transform>();
+            big.localScale = new Vector3(1.1f, 1.1f, 1.1f);
+            entity.stat.speed = 9;
+            entity.stat.Damage = 1;
+            SpriteRenderer sprite = f.GetComponent<SpriteRenderer>();
+            sprite.color = new Color(1, 0.92f, 0.016f, 1);
+            yield return new WaitForSeconds(1f);
+        }        
         yield return 0;
     }
     IEnumerator Wave24()
     {
-
+        Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        yield return new WaitForSeconds(0.4f);
+        Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        yield return new WaitForSeconds(0.4f);
+        Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        for (int i = 0; i < 3; i++)
+        {
+            Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[3], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[5], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[6], transform.position + new Vector3(0, Random.Range(-0.4f, 0.4f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[8], transform.position + new Vector3(0, Random.Range(0.2f, 0.5f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+        }
         yield return 0;
     }
     IEnumerator Wave25()
     {
-
+        nowBoss = true;
+        Instantiate(enemy[11], transform.position + new Vector3(0, 1.4f, 0), Quaternion.identity);
+        Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        yield return new WaitForSeconds(0.4f);
+        Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        for (int i = 0; i < 4; i++)
+        {
+            Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[3], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[5], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[8], transform.position + new Vector3(0, Random.Range(0.2f, 0.5f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+        }
         yield return 0;
     }
     IEnumerator Wave26()
     {
-
+        Instantiate(enemy[9], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        for (int i = 0; i < 4; i++)
+        {
+            Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+            Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+        }
+        yield return new WaitForSeconds(2f);
+        for (int i = 0; i < 3; i++)
+        {
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+        }
+        for (int i = 0; i < 4; i++)
+        {
+            Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+        }
         yield return 0;
     }
     IEnumerator Wave27()
     {
+        for (int i = 0; i < 2; i++)
+        {
+            Instantiate(enemy[9], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(0.4f);
+        }
+        for (int i = 0; i < 4; i++)
+        {
+            Instantiate(enemy[6], transform.position + new Vector3(0, Random.Range(-0.4f, 0.4f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+        }
+        yield return new WaitForSeconds(2f);
+        for (int i = 0; i < 4; i++)
+        {
+            Instantiate(enemy[6], transform.position + new Vector3(0, Random.Range(-0.4f, 0.4f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+        }
+        for (int i = 0; i < 30; i++)
+        {
+            Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(0.5f);
+        }
 
-        yield return 0;
+            yield return 0;
     }
     IEnumerator Wave28()
     {
-
+        nowBoss = true;
+        Instantiate(enemy[10], transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity);
+        Instantiate(enemy[9], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        yield return new WaitForSeconds(1.5f);
+        Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        for (int i = 0; i < 5; i++)
+        {
+            Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[5], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[8], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+        }
         yield return 0;
     }
     IEnumerator Wave29()
     {
-
+        nowBoss = true;
+        Instantiate(enemy[11], transform.position + new Vector3(0, 1.4f, 0), Quaternion.identity);
+        Instantiate(enemy[9], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        yield return new WaitForSeconds(1.5f);
+        Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        for (int i = 0; i < 3; i++)
+        {
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[5], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            Instantiate(enemy[8], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+        }
         yield return 0;
     }
     IEnumerator Wave30()
     {
-
+        nowBoss = true;
+        Instantiate(enemy[12], transform.position + new Vector3(0, 1.2f, 0), Quaternion.identity);
+        Instantiate(enemy[9], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        yield return new WaitForSeconds(0.4f);
+        Instantiate(enemy[9], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        yield return new WaitForSeconds(1.5f);
+        Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
+        for (int i = 0; i < 4; i++)
+        {
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[6], transform.position + new Vector3(0, Random.Range(-0.4f, 0.4f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+            Instantiate(enemy[6], transform.position + new Vector3(0, Random.Range(-0.4f, 0.4f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+            Instantiate(enemy[1], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[6], transform.position + new Vector3(0, Random.Range(-0.4f, 0.4f), 0), Quaternion.identity);
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            Instantiate(enemy[2], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[6], transform.position + new Vector3(0, Random.Range(-0.4f, 0.4f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+            Instantiate(enemy[6], transform.position + new Vector3(0, Random.Range(-0.4f, 0.4f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+            Instantiate(enemy[5], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            Instantiate(enemy[8], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+        }
         yield return 0;
     }
 }

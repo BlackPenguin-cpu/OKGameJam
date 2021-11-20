@@ -3,35 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyLastBoss : Entity
+public class EnemyMiniMonsteralpha : Entity
 {
     public float crossroad;
     public RaycastHit2D hit;
     public float attacktime;
     public float attacktimeMax;
-    public float skilltime;
-    public float skilltimeMax;
     public Image barSprite;
     public Image barSpriteNULL;
-    public Image barSpriteBoss;
-    public Image nullbarSpriteBoss;
-    public Image BackGrowndBoss;
-    public Image BossPicture;
-    public GameObject BossText;
-    public GameObject BossDead;
     public float barY;
     public bool isMove;
-    public int AnimationCheak = 0;
+    public GameObject DieSpawn;
+    public GameObject DieEffect;
     Animator animator;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
-        stat = new StatInfo { Damage = 20, speed = 0.05f, MaxHp = 877, Score = 7777, type = StatInfo.Type.ENEMY, defence = 10 };
+        stat = new StatInfo { Damage = 10, speed = 1.6f, MaxHp = 70, Score = 50, type = StatInfo.Type.ENEMY, defence = 1 };
     }
+
     void Update()
     {
-        skilltime += Time.deltaTime;
         Debug.DrawRay(transform.position, Vector3.left * crossroad, Color.red);
         var rayHit = Physics2D.RaycastAll(transform.position, Vector3.left, crossroad);
         foreach (var hit in rayHit)
@@ -50,25 +43,9 @@ public class EnemyLastBoss : Entity
                 isMove = true;
             }
         }
-        if (skilltime >= skilltimeMax)
-        {
-            Invoke("Skill", 2);
-            stat.speed = 0;
-            AnimationCheak++;
-        }
-        if(AnimationCheak == 1)
-        {
-            animator.SetTrigger("isSkill");
-        }
         if (isMove) Move();
         barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
         barSprite.fillAmount = _hp / stat.MaxHp;
-        barSpriteBoss.fillAmount = _hp / stat.MaxHp;
-        barSpriteBoss.transform.position = new Vector3(10.65f, 2.6f, 0);
-        nullbarSpriteBoss.transform.position = new Vector3(10.65f, 2.6f, 0);
-        BackGrowndBoss.transform.position = new Vector3(6.5f, 2.2f, 0);
-        BossText.transform.position = new Vector3(9f, 1.4f, 0);
-        BossPicture.transform.position = new Vector3(6.27f, 2.6f, 0);
         barSpriteNULL.transform.position = this.transform.position + new Vector3(0, barY, 0);
     }
 
@@ -89,19 +66,12 @@ public class EnemyLastBoss : Entity
 
     protected override void Dead()
     {
-        BigEnemySpawner.nowBoss = false;
-        BigEnemySpawner.WaveTime = 40;
-        Instantiate(BossDead, transform.position, Quaternion.identity);
+        Instantiate(DieEffect, transform.position, Quaternion.identity);
+        Instantiate(DieSpawn, transform.position + new Vector3(1, 0, 0), Quaternion.identity);
+        Instantiate(DieSpawn, transform.position + new Vector3(2, 0, 0), Quaternion.identity);
+        Instantiate(DieSpawn, transform.position + new Vector3(3, 0, 0), Quaternion.identity);
+        Instantiate(DieSpawn, transform.position + new Vector3(4, 0, 0), Quaternion.identity);
         GameManager.Score = GameManager.Score + stat.Score;
         Destroy(this.gameObject);
-    }
-
-    void Skill()
-    {
-        AnimationCheak = 0;
-        CancelInvoke("Skill");
-        skilltime = 0;
-        Debug.Log("즉사 스킬 사용");
-        stat.speed = 0.3f;
     }
 }

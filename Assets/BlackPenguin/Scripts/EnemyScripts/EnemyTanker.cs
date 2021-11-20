@@ -18,7 +18,7 @@ public class EnemyTanker : Entity
     private void Start()
     {
         animator = GetComponent<Animator>();
-        stat = new StatInfo { Damage = 2, speed = 0.5f, MaxHp = 35, Score = 1000, type = StatInfo.Type.ENEMY, defence = 3 };
+        //stat = new StatInfo { Damage = 2, speed = 0.65f, MaxHp = 27, Score = 1000, type = StatInfo.Type.ENEMY, defence = 3 };
     }
     void Update()
     {

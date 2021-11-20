@@ -296,6 +296,7 @@ MonoBehaviour:
     MaxHp: 14
     Defence: 3
     Score: 400
+    Speed: 1.7
     isDie: 0
     buffWeak: 0
     slow: 0
