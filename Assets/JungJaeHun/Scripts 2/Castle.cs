@@ -35,7 +35,7 @@ public class Castle : Entity
     {
         GameManager.Instance.gold += GameManager.Instance.onClickGold;
         Debug.Log("µ· Αυ°΅");
-        GameManager.Gold += 1;
+        //GameManager.Gold += GameManager.Gold;
     }
     
     public override void Move()

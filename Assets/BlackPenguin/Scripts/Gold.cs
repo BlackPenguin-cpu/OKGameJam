@@ -15,6 +15,6 @@ public class Gold : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = "µ· : " + GameManager.Gold + "¿ø";
+        text.text = "µ· : " + GameManager.Instance.gold + "¿ø";
     }
 }
