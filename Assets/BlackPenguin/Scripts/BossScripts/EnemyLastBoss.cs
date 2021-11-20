@@ -102,6 +102,7 @@ public class EnemyLastBoss : Entity
         CancelInvoke("Skill");
         skilltime = 0;
         Debug.Log("즉사 스킬 사용");
+        Entity[] entity = FindObjectsOfType<Entity>();
         stat.speed = 0.3f;
     }
 }
