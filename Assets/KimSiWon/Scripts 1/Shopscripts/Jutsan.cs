@@ -13,7 +13,7 @@ public class Jutsan : Interaction
         }
         else if(GameManager.Instance.gold < 1000)
         {
-            Debug.Log("±èÀçÀº¹Ùº¸Âm");
+            Debug.Log("º´½Å¾Æ µ· ¾øÀÝ¾Æ");
         }
     }
 

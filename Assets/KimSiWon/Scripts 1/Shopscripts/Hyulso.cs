@@ -9,7 +9,7 @@ public class Hyulso : Interaction
     {
         if(GameManager.Instance.gold >= 150)
         {
-        ShopHyulso = true;
+            ShopHyulso = true;
 
         }
         else if(GameManager.Instance.gold < 150)

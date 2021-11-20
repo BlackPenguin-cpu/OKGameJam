@@ -125,13 +125,16 @@ public class BigEnemySpawner : MonoBehaviour
     }
     IEnumerator Wave1()
     {
+        Sound.Instance.ChangeClip("충디 일반 웨이브 브금", true);
         for (int i = 0; i < 7; i++)
         {
+
             Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
             yield return new WaitForSeconds(2);
             Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
             yield return new WaitForSeconds(3);
         }
+        
         yield return 0;
     }
     IEnumerator Wave2()
