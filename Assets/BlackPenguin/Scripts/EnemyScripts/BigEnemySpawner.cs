@@ -128,7 +128,6 @@ public class BigEnemySpawner : MonoBehaviour
         Sound.Instance.ChangeClip("Stage", true);
         for (int i = 0; i < 7; i++)
         {
-
             Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
             yield return new WaitForSeconds(2);
             Instantiate(enemy[0], transform.position + new Vector3(0, Random.Range(-1, 0.6f), 0), Quaternion.identity);
