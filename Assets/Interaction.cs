@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
-public abstract class Intreraction : MonoBehaviour
+public abstract class Interaction : MonoBehaviour
 {
     Button button;
     protected virtual void Update()
