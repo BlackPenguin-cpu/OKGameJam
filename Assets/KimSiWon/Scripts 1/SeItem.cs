@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SeItem : Intreraction
+public class SeItem : Interaction
 {
     public int Money = 0;
 
