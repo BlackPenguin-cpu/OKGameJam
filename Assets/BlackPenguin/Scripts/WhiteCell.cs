@@ -57,10 +57,9 @@ public class WhiteCell : Entity
         attacktime += 1 * Time.deltaTime;
         if (attacktime >= attacktimeMax)
         {
-            animator.SetTrigger("isAttack");
+            base.Attack(entity);
             attacktime = 0;
             Debug.Log("1");
-            base.Attack(entity);
         }
     }
 

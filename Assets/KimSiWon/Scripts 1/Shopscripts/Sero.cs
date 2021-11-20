@@ -2,26 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SeItem : Interaction
+public class Sero : MonoBehaviour
 {
-    public int Money = 0;
-
-    protected override void Action()
-    {
-       
-    }
-
+    public bool ShopSero = false;
+    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-  
+    // Update is called once per frame
     void Update()
     {
         
-       
     }
-    
 }
-

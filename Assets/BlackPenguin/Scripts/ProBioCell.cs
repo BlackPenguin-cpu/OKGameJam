@@ -58,7 +58,6 @@ public class ProBioCell : Entity
         attacktime += 1 * Time.deltaTime;
         if (attacktime >= attacktimeMax)
         {
-            animator.SetTrigger("isAttack");
             attacktime = 0;
             Debug.Log("1");
             base.Attack(entity);

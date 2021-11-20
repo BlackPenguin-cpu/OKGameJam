@@ -18,7 +18,7 @@ public class BloodCowCell : Entity
     protected override void Start()
     {
         animator = GetComponent<Animator>();
-        stat = new StatInfo { Damage = 3 , speed = 2, MaxHp = 10, type = StatInfo.Type.FRIENDLY, defence = 4, Score = 50 };
+        stat = new StatInfo { Damage = 3, speed = 2, MaxHp = 10, type = StatInfo.Type.FRIENDLY, defence = 4, Score = 50 };
         base.Start();
         attacktimeMax = 5;
         crossroad = 2;
@@ -33,7 +33,7 @@ public class BloodCowCell : Entity
             if (hit.collider.gameObject != this.gameObject && hit.collider.gameObject.GetComponent<Entity>() != null)
             {
                 Entity entity = hit.collider.gameObject.GetComponent<Entity>();
-                attacktime += 1 * Time.deltaTime;
+                    attacktime += 1 * Time.deltaTime;
                 if (entity.stat.type != this.stat.type)
                 {
                     isMove = false;
@@ -48,7 +48,7 @@ public class BloodCowCell : Entity
             }
         }
         if (isMove) Move();
-        barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);   
+        barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
         barSprite.fillAmount = _hp / stat.MaxHp;
     }
 
@@ -60,7 +60,6 @@ public class BloodCowCell : Entity
     {
         if (attacktime >= attacktimeMax)
         {
-            animator.SetTrigger("isAttack");
             attacktime = 0;
             base.Attack(entity);
         }
@@ -69,9 +68,9 @@ public class BloodCowCell : Entity
     protected override void Dead()
     {
         Entity[] entities = FindObjectsOfType<Entity>();
-        foreach(Entity entity in entities)
+        foreach (Entity entity in entities)
         {
-            if(entity.stat.type == StatInfo.Type.FRIENDLY)
+            if (entity.stat.type == StatInfo.Type.FRIENDLY)
             {
                 entity._hp = +7;
             }
