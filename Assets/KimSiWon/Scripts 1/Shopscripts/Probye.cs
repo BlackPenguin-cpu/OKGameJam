@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class Probye : Interaction
 {
-    public bool ShopProbye = false;
+    static public bool ShopProbye = false;
 
     protected override void Action()
     {
-        ShopProbye = true;
+        if (GameManager.Instance.gold >= 150)
+        {
+            ShopProbye = true;
+            GameManager.Instance.gold -= 150;
+        }
+        else if (GameManager.Instance.gold < 150)
+        {
+            Debug.Log("¿Ö »ï");
+        }
     }
 
     void Start()

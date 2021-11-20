@@ -2,19 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hyulso : Interaction
+public class Jutsan : Interaction
 {
-    static bool ShopHyulso = false;
+    static public bool ShopJutsan = false;
     protected override void Action()
     {
-        if(GameManager.Instance.gold >= 150)
+        if (GameManager.Instance.gold >= 1000)
         {
-        ShopHyulso = true;
-
+            ShopJutsan = true;
         }
-        else if(GameManager.Instance.gold < 150)
+        else if(GameManager.Instance.gold < 1000)
         {
-            Debug.Log("六六六六六六傘 跤骯棻堅");
+            Debug.Log("梯營擎夥爾瀉");
         }
     }
 

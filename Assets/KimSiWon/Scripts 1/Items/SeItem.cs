@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SeItem : Interaction
 {
-    public int Money = 0;
+    
 
     protected override void Action()
     {

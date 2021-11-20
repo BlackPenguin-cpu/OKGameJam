@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hyulso : Interaction
+public class Vitamin : Interaction
 {
-    static bool ShopHyulso = false;
+    static public bool ShopVitamin = false;
     protected override void Action()
     {
-        if(GameManager.Instance.gold >= 150)
+        if(GameManager.Instance.gold >= 1000)
         {
-        ShopHyulso = true;
-
+           ShopVitamin = true;
+            GameManager.Instance.gold -= 1000;
         }
-        else if(GameManager.Instance.gold < 150)
+       else if(GameManager.Instance.gold < 1000)
         {
-            Debug.Log("せせせせせせ格 公至陥壱");
+            Debug.Log("せ 格 儀 蒸摂戎せ");
         }
     }
 
