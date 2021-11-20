@@ -48,7 +48,7 @@ public class BloodCowCell : Entity
             }
         }
         if (isMove) Move();
-        barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
+        barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);   
         barSprite.fillAmount = _hp / stat.MaxHp;
     }
 
