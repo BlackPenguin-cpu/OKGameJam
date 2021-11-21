@@ -89,6 +89,7 @@ public class EnemyLastBoss : Entity
 
     protected override void Dead()
     {
+        GameManager.LastBossDead = true;
         BigEnemySpawner.nowBoss = false;
         BigEnemySpawner.WaveTime = 40;
         Instantiate(BossDead, transform.position, Quaternion.identity);

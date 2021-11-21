@@ -9,9 +9,13 @@ public class Castle : Entity
     public Image barSprite;
     public Image barSpriteNULL;
     public float barY;
+    public GameObject GameOverPanel;
+
     // Start is called before the first frame update
     void Start()
     {
+        _hp = 0;
+        GameOverPanel.SetActive(false);
         stat = new StatInfo {type = StatInfo.Type.FRIENDLY, MaxHp = 100};
     }
     
@@ -48,7 +52,9 @@ public class Castle : Entity
     }
 
     protected override void Dead()
-    { 
+    {
+        Time.timeScale = 0;
+        GameOverPanel.SetActive(true);
         Debug.Log("게임 오버");
     }
     
