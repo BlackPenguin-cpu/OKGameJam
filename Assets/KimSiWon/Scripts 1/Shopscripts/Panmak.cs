@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Panmak : Interaction
 {
-    static bool ShopPanmak = false;
+    static public bool ShopPanmak = false;
     protected override void Action()
     {
         if(GameManager.Instance.gold >= 150)

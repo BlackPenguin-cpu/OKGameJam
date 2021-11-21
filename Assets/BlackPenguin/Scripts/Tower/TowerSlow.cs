@@ -9,6 +9,15 @@ public class TowerSlow : Tower
     {
         ATCooldown = 15;
     }
+    protected override void Update()
+    {
+        base.Update();
+        if (SlowTower.ShopSlowTower == true)
+        {
+            gameObject.SetActive(true);
+        }
+        else gameObject.SetActive(false);
+    }
     protected override void Attack()
     {
         Debug.Log($"{gameObject.name}АјАн");
