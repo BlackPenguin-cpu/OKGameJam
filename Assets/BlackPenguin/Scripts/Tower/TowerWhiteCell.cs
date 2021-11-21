@@ -15,6 +15,14 @@ public class TowerWhiteCell : Tower
     // Update is called once per frame
     protected override void Update()
     {
+        if (DealTower.ShopDealTower == true)
+        {
+            gameObject.SetActive(true);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
         if (!onAttack)
         {
             target = null;

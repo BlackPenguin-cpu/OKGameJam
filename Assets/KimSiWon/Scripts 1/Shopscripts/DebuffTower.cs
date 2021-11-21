@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hyulso : Interaction
+public class DebuffTower : Interaction
 {
-    static bool ShopHyulso = false;
+    static public bool ShopDebuffTower = false;
     protected override void Action()
     {
-        if(GameManager.Instance.gold >= 150)
+        if (GameManager.Instance.gold >= 500)
         {
-            ShopHyulso = true;
-            GameManager.Instance.gold -= 150;
+            ShopDebuffTower = true;
+            GameManager.Instance.gold -= 500;
 
         }
-        else if(GameManager.Instance.gold < 150)
+        else if (GameManager.Instance.gold < 500)
         {
             Debug.Log("せせせせせせ格 公至陥壱");
         }
