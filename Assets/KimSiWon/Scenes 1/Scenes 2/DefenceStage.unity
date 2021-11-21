@@ -2671,6 +2671,12 @@ MonoBehaviour:
   barSprite: {fileID: 125408529}
   barSpriteNULL: {fileID: 270899109}
   barY: 2.5
+  Cooldown: 0
+  Friendlies:
+  - {fileID: 8446373886712712040, guid: 3ca5cf5b7a6b17542acd4fd4780fbe88, type: 3}
+  - {fileID: 7492407963713536485, guid: 9462741f9ad617f4c9f62fc5dcf593e0, type: 3}
+  - {fileID: 6344869183182165568, guid: 90de2396042d57345a02ca22cc416525, type: 3}
+  - {fileID: 7106356361057586599, guid: 1277c60bdf1c80d4a923de9b8d3ff85e, type: 3}
   GameOverPanel: {fileID: 1923251466}
 --- !u!212 &684058096
 SpriteRenderer:
@@ -5080,7 +5086,7 @@ RectTransform:
   - {fileID: 825443995}
   - {fileID: 1274041161}
   m_Father: {fileID: 1578253449}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6604,9 +6610,9 @@ RectTransform:
   - {fileID: 675376079}
   - {fileID: 701515313}
   - {fileID: 1135994394}
+  - {fileID: 1166015077}
   - {fileID: 806022004}
   - {fileID: 666073140}
-  - {fileID: 1166015077}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
