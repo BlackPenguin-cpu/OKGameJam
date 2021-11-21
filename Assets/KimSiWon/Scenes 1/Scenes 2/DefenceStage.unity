@@ -8033,9 +8033,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1916503599099711148, guid: 65d4edd9992ddb54989c833573ef481f, type: 3}
+      propertyPath: nowWave
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1916503599099711149, guid: 65d4edd9992ddb54989c833573ef481f, type: 3}
       propertyPath: m_Name
       value: BiiigEnemySpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 1916503599099711149, guid: 65d4edd9992ddb54989c833573ef481f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1916503599099711155, guid: 65d4edd9992ddb54989c833573ef481f, type: 3}
       propertyPath: m_RootOrder
