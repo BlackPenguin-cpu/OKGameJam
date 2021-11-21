@@ -14,6 +14,8 @@ public class BigEnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        nowWave = 1;
+        Wave = 0;
         WaveTime = 65;
     }
 

@@ -15,6 +15,9 @@ public class GameManager : Singleton<GameManager>
 
     void Start()
     {
+        Score = 0;
+        gold = 0;
+        Gold = 0;
         rb = GetComponent<Rigidbody>();
     }
     public void Update()

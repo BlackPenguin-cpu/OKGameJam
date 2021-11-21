@@ -24,4 +24,12 @@ public class ButtonManager : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    public void StageExit()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void ReTry()
+    {
+        SceneManager.LoadScene(1);
+    }
 }
