@@ -9,7 +9,6 @@ public class BigEnemySpawner : MonoBehaviour
     [SerializeField] int nowWave = 0;
     static public int Wave = 0;
     static public bool nowBoss = false;
- 
 
     // Start is called before the first frame update
     void Start()

@@ -12,9 +12,13 @@ public class GameManager : Singleton<GameManager>
     public int onClickGold = 1;
     static public float Score = 0;
     Entity entity;
+    static public bool LastBossDead = false;
+    public GameObject GameEndingPanel;
+
 
     void Start()
     {
+        GameEndingPanel.SetActive(false);
         Score = 0;
         gold = 0;
         Gold = 0;
@@ -39,6 +43,14 @@ public class GameManager : Singleton<GameManager>
                 hit.collider.gameObject.GetComponent<Castle>().OnClick();
             }
         }
+        if(LastBossDead == true)
+        {
+            Invoke("GameClear", 5f);         
+        }
     }
-
+    void GameClear()
+    {
+        Time.timeScale = 0;
+        GameEndingPanel.SetActive(true);
+    }
 }
