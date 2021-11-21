@@ -9,6 +9,11 @@ public class TowerDebuff : Tower
     {
         ATCooldown = 3;
     }
+    protected override void Update()
+    {
+        base.Update();
+        
+    }
     protected override void Attack()
     {
             Entity target = gameObjects[Random.Range(0,gameObjects.Count)].GetComponent<Entity>();
