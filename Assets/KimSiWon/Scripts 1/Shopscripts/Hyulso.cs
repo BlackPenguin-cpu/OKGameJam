@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hyulso : Interaction
 {
-    static bool ShopHyulso = false;
+    static public bool ShopHyulso = false;
     protected override void Action()
     {
         if(GameManager.Instance.gold >= 150)

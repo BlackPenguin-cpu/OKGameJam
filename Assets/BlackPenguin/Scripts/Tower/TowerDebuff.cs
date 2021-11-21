@@ -12,7 +12,14 @@ public class TowerDebuff : Tower
     protected override void Update()
     {
         base.Update();
-        
+        if (DebuffTower.ShopDebuffTower == true)
+        {
+            gameObject.SetActive(true);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
     protected override void Attack()
     {

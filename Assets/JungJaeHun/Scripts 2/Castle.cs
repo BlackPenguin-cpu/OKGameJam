@@ -9,20 +9,45 @@ public class Castle : Entity
     public Image barSprite;
     public Image barSpriteNULL;
     public float barY;
+    [SerializeField] float Cooldown;
+    [SerializeField] GameObject[] Friendlies;
     public GameObject GameOverPanel;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
         _hp = 0;
         GameOverPanel.SetActive(false);
         stat = new StatInfo {type = StatInfo.Type.FRIENDLY, MaxHp = 100};
+        base.Start();
     }
     
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        if (Cooldown > 7)
+        {
+            Cooldown = 0;
+            if (Hyulso.ShopHyulso)
+            {
+                Instantiate(Friendlies[0], transform.position,Quaternion.identity);
+            }
+            if (Panmak.ShopPanmak)
+            {
+                Instantiate(Friendlies[1], transform.position, Quaternion.identity);
+            }
+            if (Baek.ShopBaek)
+            {
+                Instantiate(Friendlies[2], transform.position, Quaternion.identity);
+            }
+            if (Probye.ShopProbye)
+                Instantiate(Friendlies[3], transform.position, Quaternion.identity);
+            {
+
+            }
+
+        }
         if (_hp <= 0)
         {
             IsEnd = true;
@@ -31,6 +56,7 @@ public class Castle : Entity
         {
             Dead();
         }
+        Cooldown += Time.deltaTime;
         barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
         barSprite.fillAmount = _hp / stat.MaxHp;
         barSpriteNULL.transform.position = this.transform.position + new Vector3(0, barY, 0);

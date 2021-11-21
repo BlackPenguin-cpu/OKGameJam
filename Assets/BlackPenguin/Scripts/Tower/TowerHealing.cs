@@ -15,6 +15,18 @@ public class TowerHealing : Tower
             }
         }
     }
+    protected override void Update()
+    {
+        base.Update();
+        if (HealTower.ShopHealTower == true)
+        {
+            gameObject.SetActive(true);
+        }
+        else
+        {
+            gameObject.SetActive(false);    
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
