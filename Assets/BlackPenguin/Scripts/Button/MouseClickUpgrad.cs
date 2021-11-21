@@ -10,7 +10,6 @@ public class MouseClickUpgrad : Interaction
         {
             GameManager.Instance.mousepower++;
             GameManager.Instance.gold -= 100;
-            GameManager.Gold -= 100;
             //성공했습니다 문구 띄워줭
         }
         else

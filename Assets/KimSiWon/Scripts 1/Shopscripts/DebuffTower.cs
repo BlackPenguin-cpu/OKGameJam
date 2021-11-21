@@ -25,9 +25,5 @@ public class DebuffTower : Interaction
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

@@ -24,9 +24,4 @@ public class SlowTower : Interaction
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

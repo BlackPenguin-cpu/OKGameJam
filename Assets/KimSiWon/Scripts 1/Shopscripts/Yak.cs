@@ -11,7 +11,6 @@ public class Yak : Interaction
         {
             ShopYak = true;
             GameManager.Instance.gold -= 1000;
-            GameManager.Gold -= 1000;
         }
         else if (GameManager.Instance.gold < 1000)
         {
@@ -20,15 +19,5 @@ public class Yak : Interaction
         
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

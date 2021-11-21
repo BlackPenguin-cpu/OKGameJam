@@ -24,9 +24,5 @@ public class DealTower : Interaction
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

@@ -11,7 +11,6 @@ public class Panmak : Interaction
         {
             ShopPanmak = true;
             GameManager.Instance.gold -= 150;
-            GameManager.Gold -= 150;
         }
         else if(GameManager.Instance.gold < 150)
         {
@@ -19,15 +18,5 @@ public class Panmak : Interaction
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

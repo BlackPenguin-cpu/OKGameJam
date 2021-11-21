@@ -25,9 +25,4 @@ public class HealTower : Interaction
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

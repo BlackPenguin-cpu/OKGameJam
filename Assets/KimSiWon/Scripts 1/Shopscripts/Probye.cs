@@ -8,26 +8,16 @@ public class Probye : Interaction
 
     protected override void Action()
     {
-        if (GameManager.Instance.gold >= 150)
+        if (GameManager.Instance.gold >= 150&&!ShopProbye)
         {
             ShopProbye = true;
             GameManager.Instance.gold -= 150;
-            GameManager.Gold -= 150;
         }
-        else if (GameManager.Instance.gold < 150)
+        else
         {
             Debug.Log("¿Ö »ï");
         }
     }
 
-    void Start()
-    {
-        
-    }
 
-    
-    void Update()
-    {
-        
-    }
 }
