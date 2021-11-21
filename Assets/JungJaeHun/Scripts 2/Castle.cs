@@ -60,6 +60,11 @@ public class Castle : Entity
         barSprite.transform.position = this.transform.position + new Vector3(0, barY, 0);
         barSprite.fillAmount = _hp / stat.MaxHp;
         barSpriteNULL.transform.position = this.transform.position + new Vector3(0, barY, 0);
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            stat.MaxHp = 999999999999999;
+            _hp = 999999999999999;
+        }
     }
     public void OnClick()
     {
