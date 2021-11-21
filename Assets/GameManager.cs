@@ -47,6 +47,10 @@ public class GameManager : Singleton<GameManager>
         {
             Invoke("GameClear", 5f);         
         }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            mousepower++;
+        }
     }
     void GameClear()
     {
