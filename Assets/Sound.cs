@@ -25,7 +25,7 @@ public class Sound : Singleton<Sound>
             {
                 audioSource.Stop();
                 audioSource.clip = find.clip;
-                audioSource.loop = false;
+                audioSource.loop = true;
                 audioSource.Play();
             }
             else if (loop == false)
