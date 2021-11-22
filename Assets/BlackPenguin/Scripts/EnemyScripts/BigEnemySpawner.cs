@@ -310,6 +310,7 @@ public class BigEnemySpawner : MonoBehaviour
     }
     IEnumerator Wave11()
     {
+        Sound.Instance.ChangeClip("Stage", true);
         for (int i = 0; i < 2; i++)
         {
             Instantiate(enemy[4], transform.position + new Vector3(0, Random.Range(-0.4f, 0.6f), 0), Quaternion.identity);
@@ -628,6 +629,7 @@ public class BigEnemySpawner : MonoBehaviour
     }
     IEnumerator Wave21()
     {
+        Sound.Instance.ChangeClip("Stage", true);
         Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
         yield return new WaitForSeconds(0.4f);
         Instantiate(enemy[7], transform.position + new Vector3(0, Random.Range(-0.2f, 0.6f), 0), Quaternion.identity);
