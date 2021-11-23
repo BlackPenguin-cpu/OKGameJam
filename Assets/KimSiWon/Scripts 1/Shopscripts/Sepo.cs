@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Sepo : Interaction
 {
-    static public bool ShopSepo = false;
+    ShopManager shop = ShopManager.Instance;
+    GameManager game = GameManager.Instance;
     protected override void Action()
     {
-        if(GameManager.Instance.gold >= 150)
+        if (game.gold >= 150&& !shop.Seop)
         {
-            ShopSepo = true;
-            GameManager.Instance.gold -= 150;
+            shop.Seop = true;
+            game.gold -= 150;
         }
-        else if(GameManager.Instance.gold < 150)
+        else 
         {
             Debug.Log("¾ÈµÅ µ¹¾Æ°¡");
         }

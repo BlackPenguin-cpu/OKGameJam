@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Vitamin : Interaction
 {
-    static public bool ShopVitamin = false;
+    GameManager game = GameManager.Instance;
+    ShopManager shop = ShopManager.Instance;
     protected override void Action()
     {
-        if(GameManager.Instance.gold >= 1000)
+        if(game.gold >= 1000&& !shop.Vitamin)
         {
-           ShopVitamin = true;
-            GameManager.Instance.gold -= 1000;
+           shop.Vitamin = true;
+            game.gold -= 1000;
         }
-       else if(GameManager.Instance.gold < 1000)
+       else 
         {
             Debug.Log("¤» ³Ê µ· ¾øÀÝ½¿¤»");
         }

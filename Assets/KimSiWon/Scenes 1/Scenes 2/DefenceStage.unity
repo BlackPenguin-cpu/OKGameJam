@@ -609,7 +609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mousepower: 1
-  gold: 0
+  gold: 500
   onClickGold: 1
   GameEndingPanel: {fileID: 2063178086}
 --- !u!4 &123322265
@@ -2509,6 +2509,8 @@ MonoBehaviour:
   barSprite: {fileID: 125408529}
   barSpriteNULL: {fileID: 270899109}
   barY: 2.5
+  Cooldown: 0
+  Friendlies: []
   GameOverPanel: {fileID: 1923251466}
 --- !u!212 &684058096
 SpriteRenderer:
@@ -5037,7 +5039,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.101
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -6405,7 +6407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1628447416
 MonoBehaviour:
   m_ObjectHideFlags: 0

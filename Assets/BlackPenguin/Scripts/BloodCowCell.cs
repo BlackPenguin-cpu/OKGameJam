@@ -24,8 +24,9 @@ public class BloodCowCell : Entity
         crossroad = 2;
         barY = 1;
     }
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         Debug.DrawRay(transform.position, Vector3.right * crossroad, Color.red);
         var rayHit = Physics2D.RaycastAll(transform.position, Vector3.right, crossroad);
         foreach (var hit in rayHit)

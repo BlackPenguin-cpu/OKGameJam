@@ -15,13 +15,15 @@ public class EnemyCloser : Entity
     public bool isMove;
     Animator animator;
 
-    private void Start()
+    protected override void Start()
     {
         animator = GetComponent<Animator>();
+        base.Start();
         //stat = new StatInfo { Damage = 5, speed = 1.3f, MaxHp = 10, Score = 100, type = StatInfo.Type.ENEMY, defence = 1 };
     }
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         Debug.DrawRay(transform.position, Vector3.left * crossroad, Color.red);
         var rayHit = Physics2D.RaycastAll(transform.position, Vector3.left, crossroad);
         foreach (var hit in rayHit)

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Probye : Interaction
 {
-    static public bool ShopProbye = false;
-
     protected override void Action()
     {
-        if (GameManager.Instance.gold >= 150&&!ShopProbye)
+        ShopManager shop = ShopManager.Instance;
+        GameManager game = GameManager.Instance;
+        if (game.gold >= 150&&!shop.Probye)
         {
-            ShopProbye = true;
-            GameManager.Instance.gold -= 150;
+            shop.Probye = true;
+            game.gold -= 150;
         }
         else
         {

@@ -22,7 +22,7 @@ public class JutItem :Interaction
     }
 
     // Update is called once per frame
-    void Update()
+     void Update()
     {
         Cooltime -= Time.deltaTime;
     }
