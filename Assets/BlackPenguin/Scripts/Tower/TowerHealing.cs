@@ -18,7 +18,7 @@ public class TowerHealing : Tower
     protected override void Update()
     {
         base.Update();
-        if (HealTower.ShopHealTower == true)
+        if (ShopManager.Instance.HealTower == true)
         {
             gameObject.SetActive(true);
         }

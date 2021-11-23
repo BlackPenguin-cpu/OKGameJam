@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class HealTower : Interaction
 {
-    static public bool ShopHealTower = false;
+    ShopManager shop = ShopManager.Instance;
+    GameManager game = GameManager.Instance;
     protected override void Action()
     {
-        if (GameManager.Instance.gold >= 500)
+        if (game.gold >= 500&& !shop.HealTower)
         {
-            ShopHealTower = true;
-            GameManager.Instance.gold -= 500;
+            shop.HealTower = true;
+            game.gold -= 500;
 
         }
-        else if (GameManager.Instance.gold < 500)
+        else
         {
             Debug.Log("せせせせせせ格 公至陥壱");
         }

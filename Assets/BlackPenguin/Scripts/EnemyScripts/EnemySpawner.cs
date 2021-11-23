@@ -18,13 +18,15 @@ public class EnemySpawner : Entity
     public bool isMove;
     Animator animator;
 
-    private void Start()
+    protected override void Start()
     {
         animator = GetComponent<Animator>();
         stat = new StatInfo { Damage = 12, speed = 0.4f, MaxHp = 20, Score = 1500, type = StatInfo.Type.ENEMY, defence = 5 };
+        base.Start();
     }
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         spawntime += Time.deltaTime;
         Debug.DrawRay(transform.position, Vector3.left * crossroad, Color.red);
         var rayHit = Physics2D.RaycastAll(transform.position, Vector3.left, crossroad);

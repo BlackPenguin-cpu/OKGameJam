@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class SlowTower : Interaction
 {
-    static public bool ShopSlowTower = false;
+    ShopManager shop = ShopManager.Instance;
+    GameManager game = GameManager.Instance;
     protected override void Action()
     {
-        if (GameManager.Instance.gold >= 500)
+        if (game.gold >= 500&& !shop.SlowTower)
         {
-            ShopSlowTower = true;
-            GameManager.Instance.gold -= 500;
+            shop.SlowTower = true;
+            game.gold -= 500;
         }
-        else if (GameManager.Instance.gold < 500)
+        else
         {
             Debug.Log("せせせせせせ格 公至陥壱");
         }

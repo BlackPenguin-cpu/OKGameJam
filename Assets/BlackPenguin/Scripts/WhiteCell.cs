@@ -22,8 +22,9 @@ public class WhiteCell : Entity
         attacktimeMax = 8;
         crossroad = 1.5f;
     }
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         Debug.DrawRay(transform.position, Vector3.right * crossroad, Color.red);
         var rayHit = Physics2D.RaycastAll(transform.position, Vector3.right, crossroad);
         foreach (var hit in rayHit)

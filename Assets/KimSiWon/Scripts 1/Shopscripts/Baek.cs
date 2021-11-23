@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Baek : Interaction
 {
-    static public bool ShopBaek = false;
     protected override void Action()
     {
-        if (GameManager.Instance.gold >= 100)
+        if (GameManager.Instance.gold >= 100 && !ShopManager.Instance.Baek)
         {
-            ShopBaek = true;
+            ShopManager.Instance.Baek = true;
             GameManager.Instance.gold -= 100;
         }
-        else if (GameManager.Instance.gold < 100)
+        else 
         {
             Debug.Log("...¤Ð");
         }

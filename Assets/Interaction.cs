@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public abstract class Interaction : MonoBehaviour
 {
     Button button;
-    protected virtual void Update()
+    protected virtual void Start()
     {
         button = gameObject.GetComponent<Button>();
         button.onClick.AddListener(() =>{ Action();});

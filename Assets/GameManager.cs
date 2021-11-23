@@ -49,6 +49,10 @@ public class GameManager : Singleton<GameManager>
         {
             mousepower++;
         }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            gold += 1000;
+        }
     }
     void GameClear()
     {

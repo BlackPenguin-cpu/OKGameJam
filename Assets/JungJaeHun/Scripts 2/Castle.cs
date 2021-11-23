@@ -12,16 +12,17 @@ public class Castle : Entity
     [SerializeField] float Cooldown;
     [SerializeField] GameObject[] Friendlies;
     public GameObject GameOverPanel;
+    ShopManager shop = ShopManager.Instance;
 
     // Start is called before the first frame update
     protected override void Start()
     {
         _hp = 0;
         GameOverPanel.SetActive(false);
-        stat = new StatInfo {type = StatInfo.Type.FRIENDLY, MaxHp = 100};
+        stat = new StatInfo { type = StatInfo.Type.FRIENDLY, MaxHp = 100 };
         base.Start();
     }
-    
+
 
     // Update is called once per frame
     protected override void Update()
@@ -29,24 +30,22 @@ public class Castle : Entity
         if (Cooldown > 7)
         {
             Cooldown = 0;
-            if (Hyulso.ShopHyulso)
+            if (shop.BloodCowCell)
             {
-                Instantiate(Friendlies[0], transform.position,Quaternion.identity);
+                Instantiate(Friendlies[0], transform.position, Quaternion.identity);
             }
-            if (Panmak.ShopPanmak)
+            if (shop.ShieldCell)
             {
                 Instantiate(Friendlies[1], transform.position, Quaternion.identity);
             }
-            if (Baek.ShopBaek)
+            if (shop.Baek)
             {
                 Instantiate(Friendlies[2], transform.position, Quaternion.identity);
             }
-            if (Probye.ShopProbye)
-                Instantiate(Friendlies[3], transform.position, Quaternion.identity);
+            if (shop.Probye)
             {
-
+                Instantiate(Friendlies[3], transform.position, Quaternion.identity);
             }
-
         }
         if (_hp <= 0)
         {
@@ -72,14 +71,14 @@ public class Castle : Entity
         Debug.Log("돈 증가");
         //GameManager.Gold += GameManager.Gold;
     }
-    
+
     public override void Move()
     {
-        
+
     }
     protected override void Attack(Entity entity)
     {
-       
+
     }
 
     protected override void Dead()
@@ -88,5 +87,5 @@ public class Castle : Entity
         GameOverPanel.SetActive(true);
         Debug.Log("게임 오버");
     }
-    
+
 }

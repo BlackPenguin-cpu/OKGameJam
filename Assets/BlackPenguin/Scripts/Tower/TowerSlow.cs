@@ -12,7 +12,7 @@ public class TowerSlow : Tower
     protected override void Update()
     {
         base.Update();
-        if (SlowTower.ShopSlowTower == true)
+        if (ShopManager.Instance.SlowTower == true)
         {
             gameObject.SetActive(true);
         }

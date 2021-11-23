@@ -5,6 +5,7 @@ using UnityEngine;
 public class TowerDebuff : Tower
 {
     [SerializeField] private List<GameObject> gameObjects;
+
     private void Start()
     {
         ATCooldown = 3;
@@ -12,7 +13,7 @@ public class TowerDebuff : Tower
     protected override void Update()
     {
         base.Update();
-        if (DebuffTower.ShopDebuffTower == true)
+        if (ShopManager.Instance.DebuffTower == true)
         {
             gameObject.SetActive(true);
         }
