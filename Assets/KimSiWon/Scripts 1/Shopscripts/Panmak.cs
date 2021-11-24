@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Panmak : Interaction
 {
-    static public bool ShopPanmak = false;
     protected override void Action()
     {
-        if(GameManager.Instance.gold >= 150)
+        if(GameManager.Instance.gold >= 150 && !ShopManager.Instance.ShieldCell)
         {
-            ShopPanmak = true;
+            ShopManager.Instance.ShieldCell = true;
             GameManager.Instance.gold -= 150;
         }
-        else if(GameManager.Instance.gold < 150)
+        else
         {
             Debug.Log("¾ÆÀ×");
         }

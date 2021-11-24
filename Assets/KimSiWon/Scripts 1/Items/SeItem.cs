@@ -8,7 +8,7 @@ public class SeItem : Interaction
 
     protected override void Action()
     {
-        if (Yak.ShopYak == true && Cooltime == 0)
+        if (ShopManager.Instance.Sero == true && Cooltime <= 0)
         {
             
             Entity[] friendly = FindObjectsOfType<Entity>();
@@ -25,13 +25,6 @@ public class SeItem : Interaction
 
         }
     }
-
-    void Start()
-    {
-        
-    }
-
-  
     void Update()
     {
         Cooltime -= Time.deltaTime;

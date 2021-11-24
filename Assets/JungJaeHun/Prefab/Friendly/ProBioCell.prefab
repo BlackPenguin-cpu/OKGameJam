@@ -362,7 +362,7 @@ MonoBehaviour:
     type: 0
   hp: 10
   crossroad: 0
-  attacktime: 0
+  attacktime: 231
   attacktimeMax: 0
   barSprite: {fileID: 7534339526101265299}
   barY: 0

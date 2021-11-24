@@ -12,7 +12,6 @@ public class Castle : Entity
     [SerializeField] float Cooldown;
     [SerializeField] GameObject[] Friendlies;
     public GameObject GameOverPanel;
-    ShopManager shop = ShopManager.Instance;
 
     // Start is called before the first frame update
     protected override void Start()
@@ -30,21 +29,21 @@ public class Castle : Entity
         if (Cooldown > 7)
         {
             Cooldown = 0;
-            if (shop.BloodCowCell)
+            if (ShopManager.Instance.BloodCowCell)
             {
-                Instantiate(Friendlies[0], transform.position, Quaternion.identity);
+                Instantiate(Friendlies[0], transform.position + new Vector3(0, -1.5f, 0), Quaternion.identity);
             }
-            if (shop.ShieldCell)
+            if (ShopManager.Instance.ShieldCell)
             {
-                Instantiate(Friendlies[1], transform.position, Quaternion.identity);
+                Instantiate(Friendlies[1], transform.position + new Vector3(0, -1.5f, 0), Quaternion.identity);
             }
-            if (shop.Baek)
+            if (ShopManager.Instance.Baek)
             {
-                Instantiate(Friendlies[2], transform.position, Quaternion.identity);
+                Instantiate(Friendlies[2], transform.position + new Vector3(0, -1.5f, 0), Quaternion.identity);
             }
-            if (shop.Probye)
+            if (ShopManager.Instance.Probye)
             {
-                Instantiate(Friendlies[3], transform.position, Quaternion.identity);
+                Instantiate(Friendlies[3], transform.position + new Vector3(0, -1.5f, 0), Quaternion.identity);
             }
         }
         if (_hp <= 0)

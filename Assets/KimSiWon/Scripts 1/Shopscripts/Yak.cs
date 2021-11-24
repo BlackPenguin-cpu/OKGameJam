@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class Yak : Interaction
 {
-    static public bool ShopYak = false;
     protected override void Action()
     {
-        if (GameManager.Instance.gold >= 1000)
+        Debug.Log("¸ô?");
+        if (GameManager.Instance.gold >= 1000 && !ShopManager.Instance.Yak)
         {
-            ShopYak = true;
+            Debug.Log("·ç");
+            ShopManager.Instance.Yak = true;
             GameManager.Instance.gold -= 1000;
         }
         else if (GameManager.Instance.gold < 1000)
         {
             Debug.Log("µ· ¾ø¾î »õ²¥ ");
         }
-        
+
     }
 
 

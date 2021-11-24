@@ -8,7 +8,7 @@ public class VitaminItem : Interaction
     
     protected override void Action()
     {
-        if(ShopManager.Instance.Vitamin == true&& Cooltime == 0)
+        if(ShopManager.Instance.Vitamin == true&& Cooltime <= 0)
         {
             
             Entity[] friendly = FindObjectsOfType<Entity>();
@@ -24,9 +24,6 @@ public class VitaminItem : Interaction
         }   
     }
 
-    // Start is called before the first frame update
-
-    // Update is called once per frame
     void Update()
     {
         Cooltime -= Time.deltaTime;

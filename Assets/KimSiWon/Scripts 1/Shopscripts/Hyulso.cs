@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Hyulso : Interaction
 {
-    static public bool ShopHyulso = false;
     protected override void Action()
     {
-        if(GameManager.Instance.gold >= 150)
+        if(GameManager.Instance.gold >= 150 && !ShopManager.Instance.BloodCowCell)
         {
-            ShopHyulso = true;
+            ShopManager.Instance.BloodCowCell = true;
             GameManager.Instance.gold -= 150;
 
         }
@@ -18,11 +17,4 @@ public class Hyulso : Interaction
             Debug.Log("せせせせせせ格 公至陥壱");
         }
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
 }

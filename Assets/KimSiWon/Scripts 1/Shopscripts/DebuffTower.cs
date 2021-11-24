@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class DebuffTower : Interaction
 {
-    ShopManager shop = ShopManager.Instance;
-    GameManager game = GameManager.Instance;
     protected override void Action()
     {
-        if (game.gold >= 500 && !shop.DebuffTower)
+        if (GameManager.Instance.gold >= 500 && !ShopManager.Instance.DebuffTower)
         {
-            shop.DebuffTower = true;
-            game.gold -= 500;
+            ShopManager.Instance.DebuffTower = true;
+            GameManager.Instance.gold -= 500;
 
         }
         else 
@@ -19,12 +17,4 @@ public class DebuffTower : Interaction
             Debug.Log("せせせせせせ格 公至陥壱");
         }
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-
 }

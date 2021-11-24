@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class Jutsan : Interaction
 {
-    static public bool ShopJutsan = false;
     protected override void Action()
     {
-        if (GameManager.Instance.gold >= 1000)
+        if (GameManager.Instance.gold >= 1000 && ShopManager.Instance.Jutsan)
         {
-            ShopJutsan = true;
+            ShopManager.Instance.Jutsan= true;
+            GameManager.Instance.gold -= 1000;
         }
-        else if(GameManager.Instance.gold < 1000)
+        else       
         {
             Debug.Log("º´½Å¾Æ µ· ¾øÀÝ¾Æ");
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
 }

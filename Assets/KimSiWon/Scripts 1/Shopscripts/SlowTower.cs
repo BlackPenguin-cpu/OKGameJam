@@ -4,25 +4,17 @@ using UnityEngine;
 
 public class SlowTower : Interaction
 {
-    ShopManager shop = ShopManager.Instance;
-    GameManager game = GameManager.Instance;
     protected override void Action()
     {
-        if (game.gold >= 500&& !shop.SlowTower)
+        if (GameManager.Instance.gold >= 500&& !ShopManager.Instance.SlowTower)
         {
-            shop.SlowTower = true;
-            game.gold -= 500;
+            ShopManager.Instance.SlowTower = true;
+            GameManager.Instance.gold -= 500;
         }
         else
         {
             Debug.Log("せせせせせせ格 公至陥壱");
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
 }

@@ -6,12 +6,10 @@ public class Probye : Interaction
 {
     protected override void Action()
     {
-        ShopManager shop = ShopManager.Instance;
-        GameManager game = GameManager.Instance;
-        if (game.gold >= 150&&!shop.Probye)
+        if (GameManager.Instance.gold >= 150&&!ShopManager.Instance.Probye)
         {
-            shop.Probye = true;
-            game.gold -= 150;
+            ShopManager.Instance.Probye = true;
+            GameManager.Instance.gold -= 150;
         }
         else
         {

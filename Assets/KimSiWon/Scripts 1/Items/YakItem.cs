@@ -8,8 +8,10 @@ public class YakItem : Interaction
     float Cooltime = 0;
     protected override void Action()
     {
-        if (Yak.ShopYak == true && Cooltime == 0)
+        Debug.Log("ㅇㅇ 안됨 ㅋ");
+        if (ShopManager.Instance.Yak == true && Cooltime <= 0)
         {
+            Debug.Log("되네?");
             Catle._hp =- (Catle._hp / 10);
             Entity[] Enemys = FindObjectsOfType<Entity>();
             foreach(Entity entity in Enemys)
@@ -24,12 +26,6 @@ public class YakItem : Interaction
 
         }
         else Debug.Log("너 못써임마");
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame

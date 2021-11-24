@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class DealTower : Interaction
 {
-    ShopManager shop = ShopManager.Instance;
-    GameManager game = GameManager.Instance;
     protected override void Action()
     {
-        if (game.gold >= 500&&!shop.DealTower)
+        if (GameManager.Instance.gold >= 500&&!ShopManager.Instance.DealTower)
         {
-            shop.DealTower = true;
-            game.gold -= 500;
+            ShopManager.Instance.DealTower = true;
+            GameManager.Instance.gold -= 500;
 
         }
         else 
@@ -20,10 +18,6 @@ public class DealTower : Interaction
         }
     }
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
 
 }
